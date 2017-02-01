@@ -25,14 +25,15 @@
 **Success Guarantee (or Postconditions):** Ringing alarm is disabled. Does not ring again until next specified time by user.
 
 **Main Success Scenario (or Basic Flow):**
-1. Owner sets a specified time for the alarm to ring.
 
+1. Owner sets a specified time for the alarm to ring.
 2. Owner goes to sleep or goes about their day.
 3. Time goes by and reaches time that alarm is set to ring.
 4. Alarm rings.
 5. Owner pushes button to disable ringing alarm.
 
 **Extensions (or Alternative Flows):**
+
 1. Alarm cannot be disabled.
 2. Alarm continuously rings.
 3. Neighbors and other member of the household are awakened by alarm.
