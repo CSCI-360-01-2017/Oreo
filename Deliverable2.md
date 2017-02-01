@@ -130,7 +130,7 @@
 **Primary Actor:** Owner
 
 **Stakeholders and Interests:**
-* Owner: Wants the alarm to sound and therefore wake him or her up at a specified time.
+* Owner: Wants the alarm to sound and therefore wake him up at a specified time.
 * Manufacturer: Wants the alarm to be able to wake up a user so they do not get bad reviews from consumers.
 * Store: Wants alarm to function properly so the customer does not become unhappy and return item.
 
@@ -167,3 +167,51 @@
 * In the case of a power outage, does the device serialize the alarms and keep them on once the power is restored?
 * Is there a way to change the volume of the alarm?
 * How does one set the alarm's sound? Does the alarm or radio go off?
+* Does the alarm ring continuously until it has been disabled or is there a timer in case the owner is not home?
+
+---
+
+**Use Case Name:** Set Time
+
+**Scope:** Software for dual alarm AM/FM clock radio.
+
+**Level:** User Goal
+
+**Primary Actor:** Owner
+
+**Stakeholders and Interests:**
+* Owner: Wants the device to keep accurate time.
+* Manufacturer: Wants the device to keep a steady time that can sync to world clocks.
+* Store: Wants device to function properly so the customer does not become unhappy and return item.
+
+**Preconditions:** Owner has device plugged in/powered.
+
+**Success Guarantee (or Postconditions):** Owner successfully sets the accurate time.
+
+**Main Success Scenario (or Basic Flow):**
+
+1. Owner switches to set time mode.
+2. Owner changes the hour, minute, and am/pm setting to correspond with the current time.
+3. The time is successfully set.
+
+**Extensions (or Alternative Flows):**
+
+1. Owner doesn't know how to switch to the set time mode.
+2. When the time is set, it is set incorrectly.
+3. The owner is late to work because he didn't set it correctly.
+
+**Special Requirements:**
+* An interface that displays time of day
+* Button to change time. Hours and minutes separately.
+* Button to change am/pm setting.
+
+**Technology and Data Variations List:**
+* Batteries for backup power.
+* Power cord
+
+**Frequency of Occurrence:** Could be on a daily basis.
+
+**Open Issues:**
+* Does the device take into account daylight savings time?
+* Does the device have GPS to know what time zone it is in?
+* Does the time reset to 12:00am when the device loses power?
