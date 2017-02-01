@@ -5,6 +5,7 @@
 
 
 
+---
 
 **Use Case Name:** Disable Alarm
 
@@ -61,3 +62,59 @@
 * Does alarm play at a certain volume, even if clocks volume is turned down?
 * Clock does not take into account daylight savings time.
 * Does alarm automatically stop after ringing for a certain amount of time?
+
+---
+
+**Use Case Name:** Play Radio
+
+**Scope:** Software for dual alarm AM/FM clock radio.
+
+**Level:** User Goal
+
+**Primary Actor:** Owner
+
+**Stakeholders and Interests:**
+* Owner: Wants the radio to be played.
+* Radio Station: Wants listeners to be able to tune in to their radio show.
+* Manufacturer: Wants the device to be able to play radio stations so they do not get bad reviews from consumers.
+* Store: Wants device to be able to play radio stations so the consumer does not become unhappy and return item.
+
+**Preconditions:** Device is powered and owner has activated the radio.
+
+**Success Guarantee (or Postconditions):** Radio is playing by control of the user.
+
+**Main Success Scenario (or Basic Flow):**
+
+1. Owner powers the clock
+2. Owner turns on the radio option
+3. Owner selects AM or FM
+4. Owner selects station
+5. Sound plays from device
+
+**Extensions (or Alternative Flows):**
+
+1. Owner turns on the Radio option
+2. Owner can’t change from AM to FM or vice versa
+3. Owner can’t select what station because nothing plays
+4. Owner selects random station but can’t hear anything
+5. Owner can’t change volume because there is no sound
+6. Radio does not play (connectivity issues rather than sound malfunction)
+
+
+**Special Requirements:**
+* Power cord to power radio
+* Button to turn radio on
+* Potentiometer to select station
+* Switch for AM/FM
+* Dial for volume
+
+
+**Technology and Data Variations List:**
+* Batteries for backup power.
+* Antennae to receive local radio stations.
+
+**Frequency of Occurrence:** Could be on a daily basis.
+
+**Open Issues:**
+* If  power goes out, is there a recovery system that selects the previous radio station?
+* Does radio keep simply start at the beginning of the radio frequencies every time radio mode is selected?
