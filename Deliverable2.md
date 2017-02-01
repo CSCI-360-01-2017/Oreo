@@ -26,6 +26,7 @@
 
 **Main Success Scenario (or Basic Flow):**
 1. Owner sets a specified time for the alarm to ring.
+
 2. Owner goes to sleep or goes about their day.
 3. Time goes by and reaches time that alarm is set to ring.
 4. Alarm rings.
