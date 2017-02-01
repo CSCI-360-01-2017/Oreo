@@ -5,14 +5,16 @@
 
 
 **Use Case Name:** Disable Alarm
+
 **Scope:** Software for dual alarm AM/FM clock radio.
+
 **Level:** User Goal
 **Primary Actor:** Owner
 **Stakeholders and Interests:**
-..*Owner: Wants the alarm to turn off after they wake up at the specified time.
-..*Neighbor: Wants the alarm to turn off so they are not woken up or annoyed by alarm.
-..*Manufacturer: Wants the alarm to be able to turn off so they do not get bad reviews from consumers.
-..*Store: Wants alarm to disable so the consumer does not become unhappy and return item.*
+*Owner: Wants the alarm to turn off after they wake up at the specified time.
+*Neighbor: Wants the alarm to turn off so they are not woken up or annoyed by alarm.
+*Manufacturer: Wants the alarm to be able to turn off so they do not get bad reviews from consumers.
+*Store: Wants alarm to disable so the consumer does not become unhappy and return item.*
 **Preconditions:** Alarm rings at specified time by consumer.
 **Success Guarantee (or Postconditions):** Ringing alarm is disabled. Does not ring again until next specified time by user.
 **Main Success Scenario (or Basic Flow):**
