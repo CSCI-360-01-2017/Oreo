@@ -118,3 +118,52 @@
 **Open Issues:**
 * If  power goes out, is there a recovery system that selects the previous radio station?
 * Does radio keep simply start at the beginning of the radio frequencies every time radio mode is selected?
+
+---
+
+**Use Case Name:** Sound Alarm
+
+**Scope:** Software for dual alarm AM/FM clock radio.
+
+**Level:** User Goal
+
+**Primary Actor:** Owner
+
+**Stakeholders and Interests:**
+* Owner: Wants the alarm to sound and therefore wake him or her up at a specified time.
+* Manufacturer: Wants the alarm to be able to wake up a user so they do not get bad reviews from consumers.
+* Store: Wants alarm to function properly so the customer does not become unhappy and return item.
+
+**Preconditions:** Owner sets alarm before going to sleep.
+
+**Success Guarantee (or Postconditions):** Owner wakes up to a ringing alarm.
+
+**Main Success Scenario (or Basic Flow):**
+
+1. Owner goes to sleep.
+2. At the time the owner set the alarm for, an alarm goes off.
+3. Owner wakes up do to sound.
+
+**Extensions (or Alternative Flows):**
+
+1. Owner goes to sleep.
+2. The alarm is not loud enough to wake up owner.
+3. Owner sleeps through the alarm and is late for work.
+
+**Special Requirements:**
+* An interface that displays time of day
+* Button to change time. Hours and minutes separately.
+* Mode that allows alarm to be set a specified time.
+* Button to enable alarm.
+* Default alarm sound or radio station plays as alarm.
+* Toggle for owner to switch from alarm one to alarm two.
+
+**Technology and Data Variations List:**
+* Batteries for backup power.
+
+**Frequency of Occurrence:** Could be on a daily basis.
+
+**Open Issues:**
+* In the case of a power outage, does the device serialize the alarms and keep them on once the power is restored?
+* Is there a way to change the volume of the alarm?
+* How does one set the alarm's sound? Does the alarm or radio go off?
