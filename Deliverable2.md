@@ -1,5 +1,5 @@
 # Deliverable 2
-===============
+=======
 ###Team Oreo
 #####February 2, 2017
 
@@ -7,7 +7,7 @@
 
 ---
 
-**Use Case Name:** Disable Alarm
+**Use Case Name:** Dismiss Alarm
 
 **Scope:** Software for dual alarm AM/FM clock radio.
 
@@ -219,20 +219,25 @@
 ---
 
 ###**List of All Use Cases:**
-* Disable Alarm
+* Dismiss Alarm
 * Play Radio
 * Sound Alarm
 * Set Time
-* Enable Alarm
+* Enable Alarm 1
+* Enable Alarm 2
+* Disable Alarm 1
+* Disable Alarm 2
 * Change Time
-* Set Alarm
-* Activate Snooze mode
+* Set Alarm 1
+* Set Alarm 2
+* Activate Snooze Mode
 * Display Time
 * Change Radio Station
-* Power Device
 * Change Alarm Sound
-* Change Volume
+* Change Radio Volume
+* Change Alarm Volume
 
+---
 
 ###**Domain Model**
 ![Domain Model](/Images/Domain_Model_Alarm_Clock.jpg)
