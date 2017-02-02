@@ -231,4 +231,8 @@
 * Change Radio Station
 * Power Device
 * Change Alarm Sound
-* Change Volume 
+* Change Volume
+
+
+###**Domain Model**
+![Domain Model](/Images/Domain_Model_Alarm_Clock.jpg)
