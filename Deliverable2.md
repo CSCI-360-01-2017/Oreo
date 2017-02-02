@@ -216,7 +216,7 @@
 * Does the device have GPS to know what time zone it is in?
 * Does the time reset to 12:00am when the device loses power?
 
-**Other Use Cases**
+**Other Use Cases:**
 *Enable Alarm
 *Change Time
 *Set Alarm
