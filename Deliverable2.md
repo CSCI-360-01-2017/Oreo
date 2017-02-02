@@ -216,6 +216,15 @@
 * Does the device have GPS to know what time zone it is in?
 * Does the time reset to 12:00am when the device loses power?
 
+<<<<<<< HEAD
+**Other Use Cases**
+*Enable Alarm
+*Change Time
+*Set Alarm
+*Activate Snooze mode
+*Display time
+*Change Radio Station
+=======
 **Other Use Cases:**
 * Enable Alarm
 * Change Time
@@ -223,3 +232,4 @@
 * Activate Snooze mode
 * Display time
 * Change Radio Station
+>>>>>>> 2bd3b7050a5b7211b422242724a1750f5af72b99
