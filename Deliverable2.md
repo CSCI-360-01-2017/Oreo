@@ -217,4 +217,4 @@
 * Does the time reset to 12:00am when the device loses power?
 
 ##Domain Model##
-![Domain Model](\Images\Domain_Model_Alarm_Clock)
+![Domain Model](\Images\Domain_Model_Alarm_Clock.jpg)
