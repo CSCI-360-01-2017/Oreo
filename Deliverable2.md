@@ -218,10 +218,17 @@
 
 ---
 
-###**Other Use Cases**
+###**List of All Use Cases:**
+* Disable Alarm
+* Play Radio
+* Sound Alarm
+* Set Time
 * Enable Alarm
 * Change Time
 * Set Alarm
 * Activate Snooze mode
-* Display time
+* Display Time
 * Change Radio Station
+* Power Device
+* Change Alarm Sound
+* Change Volume 
