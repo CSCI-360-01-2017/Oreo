@@ -227,7 +227,6 @@
 * Enable Alarm 2
 * Disable Alarm 1
 * Disable Alarm 2
-* Change Time
 * Set Alarm 1
 * Set Alarm 2
 * Activate Snooze Mode
