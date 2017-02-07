@@ -214,7 +214,6 @@
 **Open Issues:**
 * Does the device take into account daylight savings time?
 * Does the device have GPS to know what time zone it is in?
-* Does the time reset to 12:00am when the device loses power?
 
 ---
 
@@ -235,6 +234,8 @@
 * Change Alarm Sound
 * Change Radio Volume
 * Change Alarm Volume
+* Power Radio
+* Snooze Alarm
 
 ---
 
