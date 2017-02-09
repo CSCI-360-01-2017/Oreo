@@ -17,6 +17,10 @@
 
 **Daylight Savings Time:** Time as adjusted to achieve longer evening daylight, especially in summer, by setting the clocks an hour ahead of the standard time.
 
+**Disable Alarm:** Resets the time the alarm is set to sound.
+
+**Dismiss Alarm:** A way for the user to stop the alarm without resetting the time the alarm is set to sound.
+
 **Dual Alarm:** A user can set two different alarm times on the clock.
 
 **PM:** Literal meaning “*after noon*”; the hours between noon (12:00) and midnight (00:00).
