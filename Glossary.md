@@ -1,7 +1,7 @@
 #  Dual Alarm Clock AM/FM
 =======
 ### Team Oreo
-##### Version 0.3.0
+##### Version 0.3.5
 ##### February 9, 2017
 
 
