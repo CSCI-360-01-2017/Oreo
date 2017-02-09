@@ -30,3 +30,5 @@
 
 
 **Standard Time:** A uniform time for places in approximately the same longitude, established in a country or region by law or custom.
+
+**Volume Guard:** Prevents user from increasing volume past the volume level's max.
