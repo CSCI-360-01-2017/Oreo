@@ -18,17 +18,20 @@ Operation Contracts:
 
 **Operation:** setHour(hour)
 **Cross Preference:** Use Cases: Set Time, Set Alarm 1, Set Alarm 2
+
 **Preconditions:** Device is powered
+
 **Postconditions:**
-* Owner successfully sets the hour
-* Hour and am/pm setting is displayed
+* Hour is set
 
 **Operation:** setMinute(minute)
+
 **Cross Preference:** Use Cases: Set Time, Set Alarm 1, Set Alarm 2
+
 **Preconditions:** Device is powered
+
 **Postconditions:**
-* Owner successfully sets the minute
-* Minutes is displayed
+* Minute is set
 
 ---
 
@@ -41,11 +44,14 @@ System Sequence Diagram:
 
 Operation Contract:
 
-**Operation:** turnOff()
+**Operation:** turnOffAlarm()
+
 **Cross Preference:** Use Cases: Dismiss Alarm 1, Dismiss Alarm 2, Snooze Alarm
+
 **Preconditions:**
-* Owner sets alarm
+* Alarm is set
 * Alarm goes off
+
 **Postconditions:**
 * Alarm is dismissed
 
@@ -61,38 +67,76 @@ System Sequence Diagram:
 Operation Contracts:
 
 **Operation:** turnOnRadio()
+
 **Cross Preference:** Use Cases: Power Radio, Play Radio
+
 **Preconditions:**
 * Device is powered
+
 **Postconditions:**
 * Radio is powered
+
+
+
 
 **Operation:** setModulation()
+
 **Cross Preference:** Use Cases: Play Radio, Change Radio Station
+
 **Preconditions:**
 * Device is powered
 * Radio is powered
+
 **Postconditions:**
-* Modulation is set to either AM or FM
+* Modulation is toggled between AM or FM
+
+
+
 
 **Operation:** setStation()
+
 **Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Station
+
 **Preconditions:**
 * Device is powered
 * Radio is powered
-* Modulation is set to either AM or FM
+* Modulation is toggled between AM or FM
+
 **Postconditions:**
 * Radio station is set with specific frequency
 
-**Operation:** adjustVolume()
+
+
+
+**Operation:** adjustVolume(incrementByOne)
+
 **Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
+
 **Preconditions:**
 * Device is powered
 * Radio is powered
 * Modulation is set
 * Radio station is set
+
 **Postconditions:**
-* Volume is adjusted to specific volume
+* Volume is increased by one decibel
+
+
+
+
+**Operation:** adjustVolume(decrementByOne)
+
+**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
+
+**Preconditions:**
+* Device is powered
+* Radio is powered
+* Modulation is set
+* Radio station is set
+
+**Postconditions:**
+* Volume is decremented by one decibel
+
 
 ---
 
@@ -104,10 +148,32 @@ System Sequence Diagram:
 
 
 Operation Contract:
-**Operation:** adjustVolume()
-**Cross Preference:** Use Cases: Change Radio Volume, Power Radio, Play Radio
+
+**Operation:** adjustVolume(incrementByOne)
+
+**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
+
 **Preconditions:**
 * Device is powered
 * Radio is powered
+* Modulation is set
+* Radio station is set
+
 **Postconditions:**
-* Volume is adjusted to specific volume
+* Volume is increased by one decibel
+
+
+
+
+**Operation:** adjustVolume(decrementByOne)
+
+**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
+
+**Preconditions:**
+* Device is powered
+* Radio is powered
+* Modulation is set
+* Radio station is set
+
+**Postconditions:**
+* Volume is decremented by one decibel
