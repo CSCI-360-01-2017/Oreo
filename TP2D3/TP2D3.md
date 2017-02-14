@@ -114,7 +114,7 @@
 
 **Operation:** incrementVolume()
 
-**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
+**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Volume
 
 **Preconditions:**
 * Device is powered
@@ -130,7 +130,7 @@
 
 **Operation:** decrementVolume()
 
-**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
+**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Volume
 
 **Preconditions:**
 * Device is powered
@@ -144,7 +144,7 @@
 
 ---
 
-##**Change Radio Volume**
+##**Change Volume**
 =======
 ###System Sequence Diagram:
 
@@ -155,7 +155,7 @@
 
 **Operation:** incrementVolume()
 
-**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
+**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Volume
 
 **Preconditions:**
 * Device is powered
