@@ -19,6 +19,8 @@
 
 **Daylight Savings Time:** Time as adjusted to achieve longer evening daylight, especially in summer, by setting the clocks an hour ahead of the standard time.
 
+**Decibel:** Unit of measurement for sound.
+
 **Disable Alarm:** Resets the time the alarm is set to sound.
 
 **Dismiss Alarm:** A way for the user to stop the alarm without resetting the time the alarm is set to sound.

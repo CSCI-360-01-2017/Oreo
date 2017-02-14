@@ -1,48 +1,52 @@
 #  TP2 Deliverable 3
 =======
 ###Team Oreo
-#####February 9, 2017
+#####February 14, 2017
 
 ---
 
 **System Sequence Model & Operation Contracts**
 
 ##**Set Time**
+=======
 
-System Sequence Diagram:
+###System Sequence Diagram:
 
 ![Domain Model](/Images/SSD_SetTime.jpg)
 
+###Operation Contracts:
 
-Operation Contracts:
-
-**Operation:** setHour(hour)
-**Cross Preference:** Use Cases: Set Time, Set Alarm 1, Set Alarm 2
-
-**Preconditions:** Device is powered
-
-**Postconditions:**
-* Hour is set
-
-**Operation:** setMinute(minute)
+**Operation:** incrementHour()
 
 **Cross Preference:** Use Cases: Set Time, Set Alarm 1, Set Alarm 2
 
 **Preconditions:** Device is powered
 
 **Postconditions:**
-* Minute is set
+* Hour is incremented by one
+
+----
+
+**Operation:** incrementMinute()
+
+**Cross Preference:** Use Cases: Set Time, Set Alarm 1, Set Alarm 2
+
+**Preconditions:** Device is powered
+
+**Postconditions:**
+* Minute is incremented by one
 
 ---
 
 ##**Dismiss Alarm**
+=======
 
-System Sequence Diagram:
+###System Sequence Diagram:
 
 ![Domain Model](/Images/SSD_DismissAlarm.jpg)
 
 
-Operation Contract:
+###Operation Contract:
 
 **Operation:** turnOffAlarm()
 
@@ -58,13 +62,14 @@ Operation Contract:
 ---
 
 ##**Play Radio**
+=======
 
-System Sequence Diagram:
+###System Sequence Diagram:
 
 ![Domain Model](/Images/SSD_PlayRadio.jpg)
 
 
-Operation Contracts:
+###Operation Contracts:
 
 **Operation:** turnOnRadio()
 
@@ -77,7 +82,7 @@ Operation Contracts:
 * Radio is powered
 
 
-
+---
 
 **Operation:** setModulation()
 
@@ -90,7 +95,7 @@ Operation Contracts:
 **Postconditions:**
 * Modulation is toggled between AM or FM
 
-
+---
 
 
 **Operation:** setStation()
@@ -106,11 +111,11 @@ Operation Contracts:
 * Radio station is set with specific frequency
 
 
+---
 
+**Operation:** incrementVolume()
 
-**Operation:** adjustVolume(incrementByOne)
-
-**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
+**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Volume
 
 **Preconditions:**
 * Device is powered
@@ -122,11 +127,11 @@ Operation Contracts:
 * Volume is increased by one decibel
 
 
+---
 
+**Operation:** decrementVolume()
 
-**Operation:** adjustVolume(decrementByOne)
-
-**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
+**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Volume
 
 **Preconditions:**
 * Device is powered
@@ -140,18 +145,18 @@ Operation Contracts:
 
 ---
 
-##**Change Radio Volume**
-
-System Sequence Diagram:
+##**Change Volume**
+=======
+###System Sequence Diagram:
 
 ![Domain Model](/Images/SSD_ChangeRadioVolume.jpg)
 
 
-Operation Contract:
+###Operation Contract:
 
-**Operation:** adjustVolume(incrementByOne)
+**Operation:** incrementVolume()
 
-**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
+**Cross Preference:** Use Cases: Power Radio, Play Radio, Change Volume
 
 **Preconditions:**
 * Device is powered
@@ -163,9 +168,9 @@ Operation Contract:
 * Volume is increased by one decibel
 
 
+---
 
-
-**Operation:** adjustVolume(decrementByOne)
+**Operation:** decrementVolume()
 
 **Cross Preference:** Use Cases: Power Radio, Play Radio, Change Radio Volume
 
