@@ -17,6 +17,7 @@
 ###Operation Contracts:
 
 **Operation:** incrementHour()
+
 **Cross Preference:** Use Cases: Set Time, Set Alarm 1, Set Alarm 2
 
 **Preconditions:** Device is powered
