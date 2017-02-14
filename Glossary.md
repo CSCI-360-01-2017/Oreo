@@ -25,6 +25,8 @@
 
 **Dual Alarm:** A user can set two different alarm times on the clock.
 
+**Modulation:** Collective name for AM and PM.
+
 **PM:** Literal meaning “*after noon*”; the hours between noon (12:00) and midnight (00:00).
 
 
