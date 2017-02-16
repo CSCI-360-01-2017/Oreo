@@ -10,6 +10,8 @@ Set Time
 Objects: Clock, System (on and off switches)
 Methods: incrementHour(), incrementMinute()
 
+
+
 ![Domain Model](/Images/SSD_SetTime.jpg)
 
 ---
