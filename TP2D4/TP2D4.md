@@ -7,9 +7,8 @@
 
 Set Time
 --------------
-
+Objects: Clock, System (on and off switches)
 Methods: incrementHour(), incrementMinute()
-Donovan was here!!!!!! Trying to learn!!! 
 
 ![Domain Model](/Images/SSD_SetTime.jpg)
 
@@ -17,6 +16,8 @@ Donovan was here!!!!!! Trying to learn!!!
 
 Dismiss Alarm
 -------------
+Class: Alarm
+Objects: Alarm1, Alarm2, Clock
 
 Method: turnOffAlarm()
 
@@ -26,6 +27,7 @@ Method: turnOffAlarm()
 
 Play Radio
 ----------
+Objects: Radio,
 
 Methods: turnOnRadio(), setModulation(), setStation(), incrementVolume(), decrementVolume()
 
@@ -35,6 +37,8 @@ Methods: turnOnRadio(), setModulation(), setStation(), incrementVolume(), decrem
 
 Change Volume
 -------------
+
+Objects: (Not Volume)
 
 Methods: incrementVolume(), decrementVolume()
 
