@@ -7,9 +7,9 @@
 
 Set Time
 --------------
-Objects:
+Objects: Controller, Clock
 
-Methods:
+Methods: incrementHour(), incrementMinutes()
 
 
 
@@ -19,9 +19,9 @@ Methods:
 
 Sound Alarm
 -------------
-Objects:
+Objects: AlarmController, Clock, Radio, Alarm1, Alarm2
 
-Method:
+Method: sendAlarmTime(), checkAlarmTime(), soundAlarm(alarmName), playRadio()
 
 
 
@@ -31,9 +31,9 @@ Method:
 
 Play Radio
 ----------
-Objects:
+Objects: Controller, Radio
 
-Methods:
+Methods: turnOnRadio(), setModulation(), setStation(), incrementVolume(), decrementVolume()
 
 
 
@@ -44,9 +44,9 @@ Methods:
 Change Volume
 -------------
 
-Objects:
+Objects: Controller, Radio
 
-Methods:
+Methods: incrementVolume(), decrementVolume()
 
 
 
@@ -57,9 +57,9 @@ Methods:
 
 Snooze Alarm
 ------------
-Objects:
+Objects: Controller, AlarmController, Alarm1, Alarm2
 
-Methods:
+Methods: snooze(), checkActive(), dismissAlarm(), resetAlarmPlusNineMinutes()
 
 
 
