@@ -7,41 +7,60 @@
 
 Set Time
 --------------
-Objects: Clock, System (on and off switches)
-Methods: incrementHour(), incrementMinute()
+Objects:
+
+Methods:
 
 
 
-![Domain Model](/Images/SSD_SetTime.jpg)
+![Domain Model](/Images/SD_SetTime.jpg)
 
 ---
 
-Dismiss Alarm
+Sound Alarm
 -------------
-Class: Alarm
-Objects: Alarm1, Alarm2, Clock
+Objects:
 
-Method: turnOffAlarm()
+Method:
 
-![Domain Model](/Images/SSD_DismissAlarm.jpg)
+
+
+![Domain Model](/Images/SD_SoundAlarm.jpg)
 
 ---
 
 Play Radio
 ----------
-Objects: Radio,
+Objects:
 
-Methods: turnOnRadio(), setModulation(), setStation(), incrementVolume(), decrementVolume()
+Methods:
 
-![Domain Model](/Images/SSD_PlayRadio.jpg)
+
+
+![Domain Model](/Images/SD_PlayRadio.jpg)
 
 ---
 
 Change Volume
 -------------
 
-Objects: (Not Volume)
+Objects:
 
-Methods: incrementVolume(), decrementVolume()
+Methods:
 
-![Domain Model](/Images/SSD_ChangeRadioVolume.jpg)
+
+
+
+![Domain Model](/Images/SD_ChangeVolume.jpg)
+
+---
+
+Snooze Alarm
+------------
+Objects:
+
+Methods:
+
+
+
+![Domain Model](/Images/SD_SnoozeAlarm.jpg)
