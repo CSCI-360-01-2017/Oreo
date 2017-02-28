@@ -25,7 +25,7 @@ Method:
 
 
 
-![Domain Model](/Images/SD_SoundAlarm.jpg)
+![Domain Model](/Images/SD_setAlarm.jpg)
 
 ---
 
@@ -63,4 +63,4 @@ Methods:
 
 
 
-![Domain Model](/Images/SD_SnoozeAlarm.jpg)
+![Domain Model](/Images/SD_Snooze.jpg)
