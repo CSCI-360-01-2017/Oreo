@@ -25,7 +25,7 @@ Method:
 
 
 
-![Domain Model](/Images/SD_setAlarm.jpg)
+![Domain Model](/Images/SD_SetAlarm.jpg)
 
 ---
 
