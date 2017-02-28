@@ -10,7 +10,9 @@
 ---
 
 **Glossary**
-**Alarm Controller:** Constantly checks the system's clock and sounds the alarm if the alarm and clock time match
+
+**Alarm Controller:** Constantly checks the system's clock and sounds the alarm if the alarm and clock time match.
+
 **AM:** Literal meaning "*before noon*"; the hours between midnight (00:00) and noon (12:00).
 
 **AM/FM Radio:** A technology using radio waves to carry information by systematically modulating properties of electromagnetic energy waves transmitted through space. The amplitude modulating is used for the AM radio broadcasts, and the frequency modulation is used for the FM radio broadcasts.
