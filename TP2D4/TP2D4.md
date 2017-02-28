@@ -25,7 +25,7 @@ Method: sendAlarmTime(), checkAlarmTime(), soundAlarm(alarmName), playRadio()
 
 
 
-![Domain Model](/Images/SD_SetAlarm.jpg)
+![Domain Model](/Images/SD_SoundAlarm.jpg)
 
 ---
 
@@ -63,4 +63,4 @@ Methods: snooze(), checkActive(), dismissAlarm(), resetAlarmPlusNineMinutes()
 
 
 
-![Domain Model](/Images/SD_Snooze.jpg)
+![Domain Model](/Images/SD_SnoozeAlarm.jpg)
