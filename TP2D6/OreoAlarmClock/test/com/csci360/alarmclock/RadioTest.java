@@ -37,19 +37,7 @@ public class RadioTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getVolume method, of class Radio.
-     */
-    @Test
-    public void testGetVolume() {
-        
-        System.out.println("getVolume");
-        Radio instance = new Radio();
-        int expResult = 5;
-        int result = instance.getVolume();
-        assertEquals(expResult, result);
     
-    }
 
     /**
      * Test of incrementVolume method, of class Radio.
