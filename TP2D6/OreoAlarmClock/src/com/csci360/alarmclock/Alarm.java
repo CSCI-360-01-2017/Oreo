@@ -11,9 +11,9 @@ package com.csci360.alarmclock;
  */
 public class Alarm {
     
-    public int hour;
-    public int min;
-    String alarmMod = "AM";
+    private int hour;
+    private int min;
+    private String alarmMod = "AM";
     boolean isOn = false;
     
     public void setAlarm(int hour, int min, String alarmMod)
@@ -24,10 +24,31 @@ public class Alarm {
        this.isOn = true;
     }
     
-    public boolean isOn()
+    public void turnOff()
     {
-        return isOn;
+        isOn = false;
         
+    }
+
+    /**
+     * @return the hour
+     */
+    public int getHour() {
+        return hour;
+    }
+
+    /**
+     * @return the min
+     */
+    public int getMin() {
+        return min;
+    }
+
+    /**
+     * @return the alarmMod
+     */
+    public String getAlarmMod() {
+        return alarmMod;
     }
     
 }

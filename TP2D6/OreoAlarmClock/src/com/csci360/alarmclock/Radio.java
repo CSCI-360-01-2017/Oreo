@@ -10,7 +10,7 @@ package com.csci360.alarmclock;
  * @author gabriellecozart
  */
 public class Radio {
-
+    
     private final int MAX_VOLUME = 10; 
     private final int MIN_VOLUME = 0;
     private final double MIN_FM_FREQUENCY = 87.5;

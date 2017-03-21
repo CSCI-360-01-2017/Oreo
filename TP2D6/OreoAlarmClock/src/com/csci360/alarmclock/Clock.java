@@ -7,9 +7,10 @@ package com.csci360.alarmclock;
 
 /**
  *
- * @author gabriellecozart
+ * @author brielenbeamon
  */
 public class Clock {
+    
     //create private global variables for the clock
     private int hour; // holds hours
     private int minute; // holds minutes
@@ -101,5 +102,6 @@ public class Clock {
     {
         System.out.println(this.mod); // prints modulation
     }
+    
     
 }
