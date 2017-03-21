@@ -54,17 +54,14 @@ public class Clock {
     public void incHour()
     {
         // add one to this.hour
-        if (this.hour <= 12)
-        {
-            this.hour += 1;
-        }
+        this.hour += 1;
         // switch the modulation once the hour number reaches 12
-        else if (this.hour == 12)
+        if (this.hour == 12)
         {
             this.switchMod();
         }
         // all other numbers that are greater than twelve will reset back to 1
-        else
+        else if (this.hour > 12)
         {
             this.hour = 1;
         }
