@@ -5,43 +5,29 @@
  */
 package com.csci360.alarmclock;
 
-import java.util.TimerTask;
-import java.util.Timer;
-
 /**
  *
- * @author gabriellecozart
+ * @author donovanroseau
  */
 public class Alarm {
     
-    /**
-     */
-    public long myLong = 2;
-    Timer timer;
+    public int hour;
+    public int min;
+    String alarmMod = "AM";
+    boolean isOn = false;
     
-    public Alarm(int seconds)
+    public void setAlarm(int hour, int min, String alarmMod)
     {
-        timer = new Timer();
-        timer.schedule(new RemindTask(), 
-                0, 
-                seconds*1000);
+       this.hour = hour;
+       this.min = min;
+       this.alarmMod = alarmMod;
+       this.isOn = true;
     }
     
-    class RemindTask extends TimerTask {
-        int counter = 5;
-        public void run() {
-            if(counter > 0)
-            {
-                System.out.println(counter);
-                counter--;
-            }
-            else
-            {
-            System.out.format("Time's up!%n");
-            timer.cancel(); //Terminate the timer thread
-            System.exit(0);
-            }
-        }
+    public boolean isOn()
+    {
+        return isOn;
+        
     }
     
 }
