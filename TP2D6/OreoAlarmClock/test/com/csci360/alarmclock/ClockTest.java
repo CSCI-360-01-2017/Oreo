@@ -37,9 +37,7 @@ public class ClockTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of setHour method, of class Clock.
-     
+    
     @Test
     public void testSetHour() {
         System.out.println("setHour");
@@ -49,10 +47,8 @@ public class ClockTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-    * /
-    /**
-     * Test of setMinute method, of class Clock.
-     
+   
+    
     @Test
     public void testSetMinute() {
         System.out.println("setMinute");
@@ -62,11 +58,9 @@ public class ClockTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-    * /
-
-    /**
-     * Test of setModulation method, of class Clock.
    
+
+    
     @Test
     public void testSetModulation() {
         System.out.println("setModulation");
@@ -76,10 +70,8 @@ public class ClockTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-    * /
+    
 
-    /**
-     * Test of getHour method, of class Clock.
     
     @Test
     public void testGetHour() {
@@ -91,11 +83,9 @@ public class ClockTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    * /
+    
 
-    /**
-     * Test of getMinute method, of class Clock.
-     
+    
     @Test
     public void testGetMinute() {
         System.out.println("getMinute");
@@ -106,11 +96,9 @@ public class ClockTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    * /
+    
 
-    /**
-     * Test of getMod method, of class Clock.
-     
+    
     @Test
     public void testGetMod() {
         System.out.println("getMod");
@@ -121,11 +109,9 @@ public class ClockTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    * /
+    
 
-    /**
-     * Test of incHour method, of class Clock.
-     */
+    
     @Test
     public void testIncHour() {
         System.out.println("incHour");
@@ -139,9 +125,6 @@ public class ClockTest {
         instance.printHour();
     }
 
-    /**
-     * Test of incMinute method, of class Clock.
-     */
     @Test
     public void testIncMinute() {
         System.out.println("incMinute");
@@ -153,9 +136,7 @@ public class ClockTest {
         instance.printMinute();
     }
 
-    /**
-     * Test of switchMod method, of class Clock.
-     */
+   
     @Test
     public void testSwitchMod() {
         System.out.println("switchMod");
@@ -168,9 +149,7 @@ public class ClockTest {
         
     }
 
-    /**
-     * Test of printHour method, of class Clock.
-     *
+ 
     @Test
     public void testPrintHour() {
         System.out.println("printHour");
@@ -179,11 +158,9 @@ public class ClockTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-    * /
+    
 
-    /**
-     * Test of printMinute method, of class Clock.
-     *
+    
     @Test
     public void testPrintMinute() {
         System.out.println("printMinute");
@@ -192,11 +169,9 @@ public class ClockTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-    * /
-
-    /**
-     * Test of printMod method, of class Clock.
-     *
+   
+  
+    
     @Test
     public void testPrintMod() {
         System.out.println("printMod");
@@ -205,6 +180,6 @@ public class ClockTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-    * /
+   
     
 }
