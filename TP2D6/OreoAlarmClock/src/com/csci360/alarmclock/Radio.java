@@ -14,7 +14,7 @@ public class Radio {
     private final int MAX_VOLUME = 10; 
     private final int MIN_VOLUME = 0;
     private final double MIN_FM_FREQUENCY = 87.5;
-    private final double MAX_FM_FREQUENCY = 108.0;
+    private final double MAX_FM_FREQUENCY = 108.1;
     private final double MIN_AM_FREQUENCY = 520.0;
     private final double MAX_AM_FREQUENCY = 1610.0;
 
@@ -34,8 +34,17 @@ public class Radio {
     public Radio() {
         
         this.volume = 5;
-        this.AMfrequency = this.MIN_AM_FREQUENCY;
         this.FMfrequency = this.MIN_FM_FREQUENCY;
+        this.AMfrequency = this.MIN_AM_FREQUENCY;
+        this.isFM = true;
+        this.isOn = true;
+    }
+    
+    public Radio(double FMfrequency, double AMfrequency) { // possibly make this private???
+        
+        this.volume = 5;
+        this.FMfrequency = FMfrequency;
+        this.AMfrequency = AMfrequency;
         this.isFM = true;
         this.isOn = true;
     }
@@ -50,7 +59,7 @@ public class Radio {
      /**
      * @param volume the volume to increment
      */
-    public void incrementVolume(int volume) {
+    public void incrementVolume() {
         
         if(this.volume < this.MAX_VOLUME)
         {
@@ -65,7 +74,7 @@ public class Radio {
      /**
      * @param volume the volume to decrement
      */
-    public void decrementVolume(int volume) {
+    public void decrementVolume() {
         
         if(this.volume > this.MIN_VOLUME)
         {
@@ -144,7 +153,7 @@ public class Radio {
         {
             if(this.AMfrequency > this.MIN_AM_FREQUENCY)
             {
-                this.AMfrequency = this.AMfrequency + 1.0;
+                this.AMfrequency = this.AMfrequency - 1.0;
             }
             else // at cap
             {
@@ -152,6 +161,29 @@ public class Radio {
             }
         }
     } 
+    
+    
+    /**
+     * @param isFM the Modulation to change
+     */
+    public void changeModulation() {
+        if(this.isFM == true)
+        {
+            this.isFM = false;
+        }
+        else 
+        {
+            this.isFM = true;
+        }
+    }
+    
+    
+    /**
+     * @return the volume
+     */
+    public boolean getisFM() {
+        return isFM;
+    }
     
     
     /*
