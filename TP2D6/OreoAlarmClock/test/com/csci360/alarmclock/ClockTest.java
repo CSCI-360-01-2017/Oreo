@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Brielen Beamon
+ * @author gabriellecozart
  */
 public class ClockTest {
     
@@ -37,149 +37,103 @@ public class ClockTest {
     public void tearDown() {
     }
 
-    
-    @Test
-    public void testSetHour() {
-        System.out.println("setHour");
-        int hour = 0;
-        Clock instance = new Clock();
-        instance.setHour(hour);
-        // TODO review the generated test code and remove the default call to fail.
-        
-    }
-   
-    
-    @Test
-    public void testSetMinute() {
-        System.out.println("setMinute");
-        int minute = 0;
-        Clock instance = new Clock();
-        instance.setMinute(minute);
-        // TODO review the generated test code and remove the default call to fail.
-        
-    }
-   
 
-    
+    /**
+     * Test of incrementHour method, of class Clock.
+     */
     @Test
-    public void testSetModulation() {
-        System.out.println("setModulation");
-        String mod = "";
-        Clock instance = new Clock();
-        instance.setModulation(mod);
-        // TODO review the generated test code and remove the default call to fail.
+    public void testIncrementHour() {
+        System.out.println("incrementHour");
+        Clock instance = new Clock(1, 0, "AM");
+        instance.incrementHour();
         
-    }
-    
-
-    
-    @Test
-    public void testGetHour() {
-        System.out.println("getHour");
-        Clock instance = new Clock();
-        int expResult = 0;
+        int expResult = 2;
         int result = instance.getHour();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 
-    
+    /**
+     * Test of incrementMinute method, of class Clock.
+     */
     @Test
-    public void testGetMinute() {
-        System.out.println("getMinute");
+    public void testIncrementMinute() {
+        System.out.println("incrementMinute");
         Clock instance = new Clock();
+        instance.incrementMinute();
+        
+        int expResult = 1;
+        int result = instance.getMinute();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of switchMeridien method, of class Clock.
+     */
+    @Test
+    public void testSwitchMeridien() {
+        System.out.println("switchMeridien");
+        Clock instance = new Clock();
+        instance.switchMeridien();
+        
+        String expResult = "PM";
+        String result = instance.getMeridien();
+        assertEquals(expResult, result);
+    }
+    
+     /**
+     * Test of incrementMinute method, of class Clock.
+     */
+    @Test
+    public void testMinuteBoundHour() {
+        System.out.println("MinuteBoundHour");
+        Clock instance = new Clock(2, 59, "AM");
+        instance.incrementMinute();
+        
+        int expResult = 3;
+        int result = instance.getHour();
+        assertEquals(expResult, result);
+    }
+    
+     /**
+     * Test of incrementMinute method, of class Clock.
+     */
+    @Test
+    public void testMinuteBoundMinute() {
+        System.out.println("MinuteBoundMinute");
+        Clock instance = new Clock(2, 59, "AM");
+        instance.incrementMinute();
+        
         int expResult = 0;
         int result = instance.getMinute();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
-
-    
+    /**
+     * Test of getTotalTime method, of class Clock.
+     */
     @Test
-    public void testGetMod() {
-        System.out.println("getMod");
-        Clock instance = new Clock();
-        String expResult = "";
-        String result = instance.getMod();
+    public void testGetTotalTime() {
+        System.out.println("getTotalTime");
+        Clock instance = new Clock(4, 3, "PM");
+        
+        String expResult = "04:03 PM";
+        String result = instance.getTotalTime();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
-
-    
+     /**
+     * Test of incrementMinute method, of class Clock.
+     */
     @Test
-    public void testIncHour() {
-        System.out.println("incHour");
-        Clock instance = new Clock();
-        instance.incHour();
-        // TODO review the generated test code and remove the default call to fail.
-        instance.setHour(11);
-        instance.incHour();
-        instance.printHour();
-        instance.incHour();
-        instance.printHour();
-    }
-
-    @Test
-    public void testIncMinute() {
-        System.out.println("incMinute");
-        Clock instance = new Clock();
-        instance.incMinute();
-        // TODO review the generated test code and remove the default call to fail.
-        instance.setMinute(60);
-        instance.incMinute();
-        instance.printMinute();
-    }
-
-   
-    @Test
-    public void testSwitchMod() {
-        System.out.println("switchMod");
-        Clock instance = new Clock();
-        instance.switchMod();
-        // TODO review the generated test code and remove the default call to fail.
-        instance.printMod();
-        instance.switchMod();
-        instance.printHour();
+    public void test1159AMBound() {
+        System.out.println("11:59Bound");
+        Clock instance = new Clock(11, 59, "AM");
+        instance.incrementMinute();
         
+        String expResult = "12:00 PM";
+        String result = instance.getTotalTime();
+        assertEquals(expResult, result);
     }
-
- 
-    @Test
-    public void testPrintHour() {
-        System.out.println("printHour");
-        Clock instance = new Clock();
-        instance.printHour();
-        // TODO review the generated test code and remove the default call to fail.
-        
-    }
-    
-
-    
-    @Test
-    public void testPrintMinute() {
-        System.out.println("printMinute");
-        Clock instance = new Clock();
-        instance.printMinute();
-        // TODO review the generated test code and remove the default call to fail.
-        
-    }
-   
-  
-    
-    @Test
-    public void testPrintMod() {
-        System.out.println("printMod");
-        Clock instance = new Clock();
-        instance.printMod();
-        // TODO review the generated test code and remove the default call to fail.
-        
-    }
-   
     
 }

@@ -42,11 +42,9 @@ public class Radio {
     
     public Radio(double FMfrequency, double AMfrequency) { // possibly make this private???
         
-        this.volume = 5;
+        this();
         this.FMfrequency = FMfrequency;
         this.AMfrequency = AMfrequency;
-        this.isFM = true;
-        this.isOn = true;
     }
 
     /**
