@@ -11,15 +11,15 @@ package com.csci360.alarmclock;
  */
 public class Radio {
     
-    private final int MAX_VOLUME = 10; 
-    private final int MIN_VOLUME = 0;
-    private final double MIN_FM_FREQUENCY = 87.5;
-    private final double MAX_FM_FREQUENCY = 108.1;
-    private final double MIN_AM_FREQUENCY = 520.0;
-    private final double MAX_AM_FREQUENCY = 1610.0;
+    private static final int MAX_VOLUME = 10; 
+    private static final int MIN_VOLUME = 0;
+    private static final double MIN_FM_FREQUENCY = 87.5;
+    public static final double MAX_FM_FREQUENCY = 108.1;
+    private static final double MIN_AM_FREQUENCY = 520.0;
+    private static final double MAX_AM_FREQUENCY = 1610.0;
 
-    private String MOD_AM = "AM";
-    private String MOD_FM = "FM";
+    private static final String MOD_AM = "AM";
+    private static final String MOD_FM = "FM";
   
     private int volume;
     private double AMfrequency;
@@ -42,11 +42,9 @@ public class Radio {
     
     public Radio(double FMfrequency, double AMfrequency) { // possibly make this private???
         
-        this.volume = 5;
+        this();
         this.FMfrequency = FMfrequency;
         this.AMfrequency = AMfrequency;
-        this.isFM = true;
-        this.isOn = true;
     }
 
     /**
@@ -179,18 +177,39 @@ public class Radio {
     
     
     /**
-     * @return the volume
+     * @return FM boolean
      */
     public boolean getisFM() {
         return isFM;
     }
     
-    
-    /*
-    public void playFrequency() {
+    /**
+     * @return the volume
+     */
+    public String getModString() {
         
+        String result = "AM"; 
+        
+        if(this.isFM == true)
+        {
+            result = this.MOD_FM;
+        }
+        else
+        {
+            result = this.MOD_AM;
+        }
+        
+        return result;
     }
     
+    
+    
+    public String playFrequency() {
+        return "Playing radio at " + this.getFrequency() + " " + this.getModString() + " frequency.";
+        //System.out.println("Playing radio at " + this.getFrequency() + this.getModString() + " frequency.");
+        
+    }
+    /*
     public void saveFrequency() {
         
     }*/

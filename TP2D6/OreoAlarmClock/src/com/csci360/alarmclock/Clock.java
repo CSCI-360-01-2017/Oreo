@@ -12,96 +12,95 @@ package com.csci360.alarmclock;
 public class Clock {
     
     //create private global variables for the clock
+    
+    private static final String AM_MERIDIEN = "AM";
+    private static final String PM_MERIDIEN = "PM";
+
+    
     private int hour; // holds hours
     private int minute; // holds minutes
-    private String mod; // holds AM or PM
+    private String meridien; // holds AM or PM
 
     public Clock()
     {
         this.hour = 12;
-        this.minute = 00;
-        this.mod = "AM";
+        this.minute = 0;
+        this.meridien = this.AM_MERIDIEN;
     }
     
-    public void setHour(int hour)
+    public Clock(int hour, int minute, String meridien)
     {
-        this.hour = hour; // sets hours
-    }
-    
-    public void setMinute(int minute)
-    {
-        this.minute = minute; // sets minutes
-    }
-    
-    public void setModulation(String mod)
-    {
-        this.mod = mod; // sets modulation
+        this.hour = hour;
+        this.minute = minute;
+        this.meridien = meridien;
     }
     
     public int getHour()
     {
         return this.hour; // returns hours
     }
+    
     public int getMinute()
     {
         return this.minute; // returns minute
     }
     
-    public String getMod()
+    public String getMeridien()
     {
-        return this.mod; // returs modulation
+        return this.meridien; // returs AM or PM
     }
     
-    public void incHour()
+    public void incrementHour()
     {
-        // add one to this.hour
-        this.hour += 1;
-        // switch the modulation once the hour number reaches 12
         if (this.hour == 12)
-        {
-            this.switchMod();
-        }
-        // all other numbers that are greater than twelve will reset back to 1
-        else if (this.hour > 12)
         {
             this.hour = 1;
         }
-    }
-    
-    public void incMinute()
-    {
-        // reset minute back to 0 wants the minute reches 60
-        this.minute = (this.minute + 1)%60;
-    }
-    
-    
-    
-    public void switchMod()
-    {
-        if(this.mod.equals("AM"))
+        else if (this.hour == 11)
         {
-            this.mod = "PM";
+            this.hour ++;
+            this.switchMeridien();
+        }
+        else {
+            this.hour ++; 
+        }
+    }
+    
+   /* public void userIncrementMinute()
+    {
+        this.minute = (this.minute + 1) % 60;
+    }*/
+    
+    public void incrementMinute()
+    {
+        if (this.minute == 59)
+        {
+            this.minute = 0;
+            this.incrementHour();
         }
         else
         {
-            this.mod = "AM";
+            this.minute ++; 
         }
     }
     
-    public void printHour()
+    public void switchMeridien()
     {
-        System.out.print(this.hour); // prints hours
+        if(this.meridien == this.AM_MERIDIEN)
+        {
+            this.meridien = this.PM_MERIDIEN;
+        }
+        else
+        {
+            this.meridien = this.AM_MERIDIEN;
+        }
     }
     
-    public void printMinute()
+    public String getTotalTime()
     {
-        System.out.print(this.minute); // prints minutes
+        return String.format("%02d", this.hour) + ":" + String.format("%02d", this.minute) + " " + this.meridien;
     }
     
-    public void printMod()
-    {
-        System.out.println(this.mod); // prints modulation
-    }
-    
+   
     
 }

@@ -317,4 +317,34 @@ public class RadioTest {
         
     }
     
+    /**
+     * Test of playFrequency method, of class Radio.
+     */
+    @Test
+    public void testPlayFMFrequency() {
+        
+        System.out.println("playFMFrequency");
+        Radio instance = new Radio();
+        
+        String expResult = "Playing radio at 87.5 FM frequency.";
+        String result = instance.playFrequency();
+        assertEquals(expResult, result);
+      
+    }
+    
+    /**
+     * Test of playFrequency method, of class Radio.
+     */
+    @Test
+    public void testPlayAMFrequency() {
+        
+        System.out.println("playAMFrequency");
+        Radio instance = new Radio();
+        instance.changeModulation();
+        
+        String expResult = "Playing radio at 520.0 AM frequency.";
+        String result = instance.playFrequency();
+        assertEquals(expResult, result);
+      
+    }
 }
