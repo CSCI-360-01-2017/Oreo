@@ -67,7 +67,7 @@ public class Radio {
         }
         else  // at cap
         {
-            this.volume = volume;
+            // do nothing
         }
     }
     
@@ -82,7 +82,7 @@ public class Radio {
         }
         else // at cap
         {
-            this.volume = volume;
+            // do nothing
         }
     }
   
@@ -117,7 +117,7 @@ public class Radio {
             }
             else // at cap
             {
-                this.FMfrequency = this.FMfrequency;
+                // do nothing
             }
         }
         else // this.isFM == false
@@ -128,7 +128,7 @@ public class Radio {
             }
             else // at cap
             {
-                this.FMfrequency = this.FMfrequency;
+                // do nothing
             }
         }
     }
@@ -146,7 +146,7 @@ public class Radio {
             }
             else // at cap
             {
-                this.FMfrequency = this.FMfrequency;
+                // do nothing
             }
         }
         else // this.isFM == false
@@ -157,7 +157,7 @@ public class Radio {
             }
             else // at cap
             {
-                this.FMfrequency = this.FMfrequency;
+                // do nothing
             }
         }
     } 
