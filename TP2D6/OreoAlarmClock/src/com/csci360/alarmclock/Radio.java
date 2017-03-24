@@ -202,14 +202,18 @@ public class Radio {
         }
         
         return result;
+    }  
+    
+    public String playFrequency() 
+    {
+        return "Playing radio at " + this.getFrequency() + " " + this.getModString() + " frequency.";
+        
     }
     
-    
-    
-    public String playFrequency() {
-        return "Playing radio at " + this.getFrequency() + " " + this.getModString() + " frequency.";
-        //System.out.println("Playing radio at " + this.getFrequency() + this.getModString() + " frequency.");
-        
+    public void printPlayFrequency() 
+    {
+        System.out.println("Playing radio at " + this.getFrequency() + this.getModString() + " frequency.");
+
     }
   
 }

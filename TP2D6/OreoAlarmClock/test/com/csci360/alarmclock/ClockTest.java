@@ -143,7 +143,7 @@ public class ClockTest {
     public void testUserIncrementHour() {
         System.out.println("UserIncrementHour");
         Clock instance = new Clock(11, 54, "AM");
-        instance.userIncrementHour(Clock.hour);
+        instance.userIncrementHour();
         
         String expResult = "12:54 PM";
         String result = instance.getTotalTime();
@@ -158,7 +158,7 @@ public class ClockTest {
     public void testUserIncrementMinute() {
         System.out.println("UserIncrementMinute");
         Clock instance = new Clock(11, 59, "AM");
-        instance.userIncrementMinute(Clock.minute);
+        instance.userIncrementMinute();
         
         String expResult = "11:00 AM";
         String result = instance.getTotalTime();

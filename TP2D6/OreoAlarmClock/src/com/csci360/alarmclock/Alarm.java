@@ -32,6 +32,21 @@ public class Alarm extends Clock{
         this.isSet = false;
     }
     
+    public void setHour(int hour)
+    {
+        this.hour = hour;
+    }
+    
+    public void setMinute(int minute)
+    {
+        this.minute = minute;
+    }
+    
+    public void setMeridien(String meridien)
+    {
+        this.meridien = meridien;
+    }
+    
     /**
      * @return the hour
      */
@@ -53,6 +68,10 @@ public class Alarm extends Clock{
         return this.meridien;
     }
     
+    public boolean getIsSet() {
+        return this.isSet;
+    }
+    
     public void enableDisableAlarmSwitch()
     {
         if(this.isSet == false)
@@ -68,18 +87,40 @@ public class Alarm extends Clock{
     
     public void incrementAlarmHour()
     {
-        super.userIncrementHour(this.hour);
+        if (this.hour == 12)
+        {
+            this.hour = 1;
+        }
+        else if (this.hour == 11)
+        {
+            this.hour ++;
+            this.switchMeridien();
+        }
+        else {
+            this.hour ++; 
+        }
     }
     
     public void incrementAlarmMinute()
     {
-        super.userIncrementMinute(this.minute);
+        this.minute = (this.minute + 1) % 60;
     }
     
     public boolean isAlarmTimeEqualToClockTime()
     {
-        return this.hour == super.getHour() && this.minute == super.getMinute()
-                && this.meridien.compareTo(super.getMeridien()) == 0;
+        boolean result = false;
+        
+        if(this.isSet)
+        {
+            result = this.hour == super.getHour() && this.minute == super.getMinute() 
+                    && this.meridien.compareTo(super.getMeridien()) == 0;
+        }
+        else
+        {
+            // do nothing
+        }
+        
+        return result;
     }
     
     public void soundAlarm()

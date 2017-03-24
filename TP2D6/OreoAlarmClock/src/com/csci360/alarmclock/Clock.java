@@ -35,6 +35,21 @@ public class Clock {
         this.meridien = meridien;
     }
     
+    public void setHour(int hour)
+    {
+        this.hour = hour;
+    }
+    
+    public void setMinute(int minute)
+    {
+        this.minute = minute;
+    }
+    
+    public void setMeridien(String meridien)
+    {
+        this.meridien = meridien;
+    }
+    
     public int getHour()
     {
         return this.hour; // returns hours
@@ -64,8 +79,7 @@ public class Clock {
         else {
             this.hour ++; 
         }
-    }
-    
+    }   
     
     public void timeIncrementMinute()
     {
@@ -80,8 +94,6 @@ public class Clock {
         }
     }
     
-  
-    
     public void switchMeridien()
     {
         if(this.meridien.compareTo(this.AM_MERIDIEN) == 0)
@@ -94,19 +106,24 @@ public class Clock {
         }
     }
     
-    public void userIncrementMinute(int minute)
-    {
-       this.minute = (this.minute + 1) % 60; 
-    }
-    
-    public void userIncrementHour(int hour)
+    public void userIncrementHour()
     {
         this.timeIncrementHour();
+    }
+    
+    public void userIncrementMinute()
+    {
+       this.minute = (this.minute + 1) % 60; 
     }
     
     public String getTotalTime()
     {
         return String.format("%02d", this.hour) + ":" + String.format("%02d", this.minute) + " " + this.meridien;
+    }
+    
+    public void printTotalTime()
+    {
+        System.out.print(String.format("%02d", this.hour) + ":" + String.format("%02d", this.minute) + " " + this.meridien);
     }
     
     public void start()
