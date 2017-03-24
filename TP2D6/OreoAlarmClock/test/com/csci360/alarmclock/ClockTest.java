@@ -39,13 +39,13 @@ public class ClockTest {
 
 
     /**
-     * Test of incrementHour method, of class Clock.
+     * Test of timeIncrementHour method, of class Clock.
      */
     @Test
     public void testIncrementHour() {
         System.out.println("incrementHour");
         Clock instance = new Clock(1, 0, "AM");
-        instance.incrementHour();
+        instance.timeIncrementHour();
         
         int expResult = 2;
         int result = instance.getHour();
@@ -54,13 +54,13 @@ public class ClockTest {
     
 
     /**
-     * Test of incrementMinute method, of class Clock.
+     * Test of timeIncrementMinute method, of class Clock.
      */
     @Test
     public void testIncrementMinute() {
         System.out.println("incrementMinute");
         Clock instance = new Clock();
-        instance.incrementMinute();
+        instance.timeIncrementMinute();
         
         int expResult = 1;
         int result = instance.getMinute();
@@ -82,13 +82,13 @@ public class ClockTest {
     }
     
      /**
-     * Test of incrementMinute method, of class Clock.
+     * Test of timeIncrementMinute method, of class Clock.
      */
     @Test
     public void testMinuteBoundHour() {
         System.out.println("MinuteBoundHour");
         Clock instance = new Clock(2, 59, "AM");
-        instance.incrementMinute();
+        instance.timeIncrementMinute();
         
         int expResult = 3;
         int result = instance.getHour();
@@ -96,13 +96,13 @@ public class ClockTest {
     }
     
      /**
-     * Test of incrementMinute method, of class Clock.
+     * Test of timeIncrementMinute method, of class Clock.
      */
     @Test
     public void testMinuteBoundMinute() {
         System.out.println("MinuteBoundMinute");
         Clock instance = new Clock(2, 59, "AM");
-        instance.incrementMinute();
+        instance.timeIncrementMinute();
         
         int expResult = 0;
         int result = instance.getMinute();
@@ -123,17 +123,74 @@ public class ClockTest {
     }
     
      /**
-     * Test of incrementMinute method, of class Clock.
+     * Test of timeIncrementMinute method, of class Clock.
      */
     @Test
     public void test1159AMBound() {
         System.out.println("11:59Bound");
         Clock instance = new Clock(11, 59, "AM");
-        instance.incrementMinute();
+        instance.timeIncrementMinute();
         
         String expResult = "12:00 PM";
         String result = instance.getTotalTime();
         assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of UserIncrementMinute method, of class Clock.
+     */
+    @Test
+    public void testUserIncrementHour() {
+        System.out.println("UserIncrementHour");
+        Clock instance = new Clock(11, 54, "AM");
+        instance.userIncrementHour();
+        
+        String expResult = "12:54 PM";
+        String result = instance.getTotalTime();
+        assertEquals(expResult, result);
+        
+    }
+            
+     /**
+     * Test of UserIncrementMinute method, of class Clock.
+     */
+    @Test
+    public void testUserIncrementMinute() {
+        System.out.println("UserIncrementMinute");
+        Clock instance = new Clock(11, 59, "AM");
+        instance.userIncrementMinute();
+        
+        String expResult = "11:00 AM";
+        String result = instance.getTotalTime();
+        assertEquals(expResult, result);
+        
+    }
+    
+
+    /**
+     * Test of start method, of class Clock.
+     */
+    @Test
+    public void testStart() {
+        System.out.println("start");
+        Clock instance = new Clock();
+        instance.start();
+        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of stop method, of class Clock.
+     */
+    @Test
+    public void testStop() {
+        System.out.println("stop");
+        Clock instance = new Clock();
+        instance.stop();
+        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }

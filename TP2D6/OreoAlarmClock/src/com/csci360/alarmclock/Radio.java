@@ -13,13 +13,15 @@ public class Radio {
     
     private static final int MAX_VOLUME = 10; 
     private static final int MIN_VOLUME = 0;
-    private static final double MIN_FM_FREQUENCY = 87.5;
+    public static final double MIN_FM_FREQUENCY = 87.5;
     public static final double MAX_FM_FREQUENCY = 108.1;
-    private static final double MIN_AM_FREQUENCY = 520.0;
-    private static final double MAX_AM_FREQUENCY = 1610.0;
+    public static final double MIN_AM_FREQUENCY = 520.0;
+    public static final double MAX_AM_FREQUENCY = 1610.0;
 
     private static final String MOD_AM = "AM";
     private static final String MOD_FM = "FM";
+    private static final double FM_INTERVAL = 0.2;
+    private static final double AM_INTERVAL = 1.0;
   
     private int volume;
     private double AMfrequency;
@@ -65,7 +67,7 @@ public class Radio {
         }
         else  // at cap
         {
-            this.volume = volume;
+            // do nothing
         }
     }
     
@@ -80,7 +82,7 @@ public class Radio {
         }
         else // at cap
         {
-            this.volume = volume;
+            // do nothing
         }
     }
   
@@ -111,22 +113,22 @@ public class Radio {
         {
             if(this.FMfrequency < this.MAX_FM_FREQUENCY)
             {
-                this.FMfrequency = this.FMfrequency + 0.2;
+                this.FMfrequency = this.FMfrequency + this.FM_INTERVAL;
             }
             else // at cap
             {
-                this.FMfrequency = this.FMfrequency;
+                // do nothing
             }
         }
         else // this.isFM == false
         {
             if(this.AMfrequency < this.MAX_AM_FREQUENCY)
             {
-                this.AMfrequency = this.AMfrequency + 1.0;
+                this.AMfrequency = this.AMfrequency + this.AM_INTERVAL;
             }
             else // at cap
             {
-                this.FMfrequency = this.FMfrequency;
+                // do nothing
             }
         }
     }
@@ -140,22 +142,22 @@ public class Radio {
         {
             if(this.FMfrequency > this.MIN_FM_FREQUENCY)
             {
-                this.FMfrequency = this.FMfrequency - 0.2;
+                this.FMfrequency = this.FMfrequency - this.FM_INTERVAL;
             }
             else // at cap
             {
-                this.FMfrequency = this.FMfrequency;
+                // do nothing
             }
         }
         else // this.isFM == false
         {
             if(this.AMfrequency > this.MIN_AM_FREQUENCY)
             {
-                this.AMfrequency = this.AMfrequency - 1.0;
+                this.AMfrequency = this.AMfrequency - this.AM_INTERVAL;
             }
             else // at cap
             {
-                this.FMfrequency = this.FMfrequency;
+                // do nothing
             }
         }
     } 
@@ -188,7 +190,7 @@ public class Radio {
      */
     public String getModString() {
         
-        String result = "AM"; 
+        String result = this.MOD_FM; 
         
         if(this.isFM == true)
         {
@@ -200,17 +202,18 @@ public class Radio {
         }
         
         return result;
-    }
+    }  
     
-    
-    
-    public String playFrequency() {
+    public String playFrequency() 
+    {
         return "Playing radio at " + this.getFrequency() + " " + this.getModString() + " frequency.";
-        //System.out.println("Playing radio at " + this.getFrequency() + this.getModString() + " frequency.");
         
     }
-    /*
-    public void saveFrequency() {
-        
-    }*/
+    
+    public void printPlayFrequency() 
+    {
+        System.out.println("Playing radio at " + this.getFrequency() + this.getModString() + " frequency.");
+
+    }
+  
 }

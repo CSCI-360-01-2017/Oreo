@@ -14,114 +14,139 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author donovanroseau
+ * @author gabriellecozart
  */
 public class AlarmTest {
-
+    
     public AlarmTest() {
     }
-
+    
     @BeforeClass
     public static void setUpClass() {
     }
-
+    
     @AfterClass
     public static void tearDownClass() {
     }
-
+    
     @Before
     public void setUp() {
     }
-
+    
     @After
     public void tearDown() {
     }
 
     /**
-     * Test of setAlarm method, of class Alarm.
+     * Test of enableDisableAlarmSwitch method, of class Alarm.
      */
     @Test
-    public void testSetAlarm() {
-        System.out.println("setAlarm");
-        int hour = 0;
-        int min = 0;
-        String alarmMod = "";
+    public void testEnableDisableAlarmSwitch() {
+        System.out.println("enableDisableAlarmSwitch");
         Alarm instance = new Alarm();
-        instance.setAlarm(hour, min, alarmMod);
-        if (instance.getHour() == hour && instance.getMin() == min &&
-                instance.getAlarmMod().equalsIgnoreCase(alarmMod))
-        {
-            System.out.println("Pass\n");
-        }
-        else
-        {
-            System.out.println("Fail\n");
-        }
-        // TODO review the generated test code and remove the default call to fail
-    }
-
-    /*
-    * Test of setAlarm method
-    */
-    @Test
-    public void testSetAlarm2() {
-        System.out.println("setAlarm2");
-        int hour = 100;
-        int min = 100;
-        String alarmMod = "PM";
-        Alarm instance = new Alarm();
-        instance.setAlarm(hour, min, alarmMod);
-        if (instance.getHour() == hour && instance.getMin() == min &&
-                instance.getAlarmMod().equalsIgnoreCase(alarmMod))
-        {
-
-            System.out.println("Pass\n");
-        }
-        else
-        {
-            System.out.println("Fail\n");
-        }
-        // TODO review the generated test code and remove the default call to fail
+        instance.enableDisableAlarmSwitch();
+        
+        boolean expResult = true;
+        boolean result = instance.getIsSet();
+        assertEquals(expResult, result);
     }
 
     /**
-     * Test of turnOff method, of class Alarm.
+     * Test of incrementAlarmHour method, of class Alarm.
      */
     @Test
-    public void testTurnOff() {
-        System.out.println("turnOff");
-        boolean isOn = true;
+    public void testIncrementAlarmHour() {
+        System.out.println("incrementAlarmHour");
         Alarm instance = new Alarm();
-        instance.turnOff();
-        // TODO review the generated test code and remove the default call to fail.
-        if (instance.isOn == false)
-        {
-            System.out.println("Pass\n");
-        }
-        else
-        {
-            System.out.println("Fail\n");
-        }
+        instance.incrementAlarmHour();
+        
+        int expResult = 1;
+        int result = instance.getAlarmHour();
+        assertEquals(expResult, result);
     }
 
     /**
-     * Test of turnOff method, of class Alarm.
+     * Test of incrementAlarmMinute method, of class Alarm.
      */
     @Test
-    public void testTurnOff2()
-    {
-        System.out.println("turnOffTest2");
-        boolean isOn= false;
+    public void testIncrementAlarmMinute() {
+        System.out.println("incrementAlarmMinute");
         Alarm instance = new Alarm();
-        instance.turnOff();
-        // TODO review the generated test code and remove the default call to fail.
-        if (instance.isOn == false)
-        {
-            System.out.println("Pass\n");
-        }
-        else
-        {
-            System.out.println("Fail\n");
-        }
+        instance.incrementAlarmMinute();
+        
+        int expResult = 1;
+        int result = instance.getAlarmMinute();
+        assertEquals(expResult, result);
     }
+
+    /**
+     * Test of isAlarmTimeEqualToClockTime method, of class Alarm.
+     */
+    @Test
+    public void testIsAlarmTimeEqualToClockTimeEquals() {
+        System.out.println("isAlarmTimeEqualToClockTimeEquals");
+        Alarm instanceAlarm = new Alarm();
+        
+        instanceAlarm.enableDisableAlarmSwitch();
+        boolean expResult = true;
+        boolean result = instanceAlarm.isAlarmTimeEqualToClockTime();
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of isAlarmTimeEqualToClockTime method, of class Alarm.
+     */
+    @Test
+    public void testIsAlarmTimeEqualToClockTimeNotEquals() {
+        System.out.println("isAlarmTimeEqualToClockTimeNotEquals");
+        Alarm instanceAlarm = new Alarm();
+        
+        instanceAlarm.setHour(8);
+        instanceAlarm.setMinute(0);
+        instanceAlarm.setMeridien("AM");
+        instanceAlarm.enableDisableAlarmSwitch();
+        
+        boolean expResult = false;
+        boolean result = instanceAlarm.isAlarmTimeEqualToClockTime();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of soundAlarm method, of class Alarm.
+     */
+    /*@Test
+    public void testSoundAlarm() {
+        System.out.println("soundAlarm");
+        Alarm instance = new Alarm();
+        
+        
+        String expResult = "Playing radio at 87.5 FM frequency.";
+        String result = instance.soundAlarm();
+    }*/
+
+    /**
+     * Test of isAlarming method, of class Alarm.
+     */
+    @Test
+    public void testIsAlarming() {
+        System.out.println("isAlarming");
+        Alarm instance = new Alarm();
+        
+        boolean expResult = false;
+        boolean result = instance.isAlarming();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of snooze method, of class Alarm.
+     */
+    /*@Test
+    public void testSnooze() {
+        System.out.println("snooze");
+        Alarm instance = new Alarm();
+        instance.snooze();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }*/
+    
 }

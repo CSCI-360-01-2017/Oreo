@@ -7,18 +7,18 @@ package com.csci360.alarmclock;
 
 /**
  *
- * @author brielenbeamon
+ * @author gabriellecozart, brielenbeamon
  */
 public class Clock {
     
     //create private global variables for the clock
     
-    private static final String AM_MERIDIEN = "AM";
-    private static final String PM_MERIDIEN = "PM";
+    public final String AM_MERIDIEN = "AM";
+    public final String PM_MERIDIEN = "PM";
 
     
-    private int hour; // holds hours
-    private int minute; // holds minutes
+    public static int hour; // holds hours
+    public static int minute; // holds minutes
     private String meridien; // holds AM or PM
 
     public Clock()
@@ -32,6 +32,21 @@ public class Clock {
     {
         this.hour = hour;
         this.minute = minute;
+        this.meridien = meridien;
+    }
+    
+    public void setHour(int hour)
+    {
+        this.hour = hour;
+    }
+    
+    public void setMinute(int minute)
+    {
+        this.minute = minute;
+    }
+    
+    public void setMeridien(String meridien)
+    {
         this.meridien = meridien;
     }
     
@@ -50,7 +65,7 @@ public class Clock {
         return this.meridien; // returs AM or PM
     }
     
-    public void incrementHour()
+    public void timeIncrementHour()
     {
         if (this.hour == 12)
         {
@@ -64,19 +79,14 @@ public class Clock {
         else {
             this.hour ++; 
         }
-    }
+    }   
     
-   /* public void userIncrementMinute()
-    {
-        this.minute = (this.minute + 1) % 60;
-    }*/
-    
-    public void incrementMinute()
+    public void timeIncrementMinute()
     {
         if (this.minute == 59)
         {
             this.minute = 0;
-            this.incrementHour();
+            this.timeIncrementHour();
         }
         else
         {
@@ -86,7 +96,7 @@ public class Clock {
     
     public void switchMeridien()
     {
-        if(this.meridien == this.AM_MERIDIEN)
+        if(this.meridien.compareTo(this.AM_MERIDIEN) == 0)
         {
             this.meridien = this.PM_MERIDIEN;
         }
@@ -96,9 +106,34 @@ public class Clock {
         }
     }
     
+    public void userIncrementHour()
+    {
+        this.timeIncrementHour();
+    }
+    
+    public void userIncrementMinute()
+    {
+       this.minute = (this.minute + 1) % 60; 
+    }
+    
     public String getTotalTime()
     {
         return String.format("%02d", this.hour) + ":" + String.format("%02d", this.minute) + " " + this.meridien;
+    }
+    
+    public void printTotalTime()
+    {
+        System.out.print(String.format("%02d", this.hour) + ":" + String.format("%02d", this.minute) + " " + this.meridien);
+    }
+    
+    public void start()
+    {
+        System.out.print("Timer has begun");
+    }
+    
+    public void stop()
+    {
+        System.out.print("Timer has stopped");
     }
     
    
