@@ -11,113 +11,13 @@ package com.csci360.alarmclock;
  */
 public class Clock { 
     
-    public static int hour; // holds hours
-    public static int minute; // holds minutes
-    private String meridien; // holds AM or PM
+    Time clockTime = new Time();
 
-    public Clock()
-    {
-        this.hour = 12;
-        this.minute = 0;
-        this.meridien = Constants.AM_MERIDIEN;
-    }
     
-    public Clock(int hour, int minute, String meridien)
-    {
-        this.hour = hour;
-        this.minute = minute;
-        this.meridien = meridien;
-    }
-    
-    public void setHour(int hour)
-    {
-        this.hour = hour;
-    }
-    
-    public void setMinute(int minute)
-    {
-        this.minute = minute;
-    }
-    
-    public void setMeridien(String meridien)
-    {
-        this.meridien = meridien;
-    }
-    
-    public int getHour()
-    {
-        return this.hour; // returns hours
-    }
-    
-    public int getMinute()
-    {
-        return this.minute; // returns minute
-    }
-    
-    public String getMeridien()
-    {
-        return this.meridien; // returs AM or PM
-    }
-    
-    public void timeIncrementHour()
-    {
-        if (this.hour == 12)
-        {
-            this.hour = 1;
-        }
-        else if (this.hour == 11)
-        {
-            this.hour ++;
-            this.switchMeridien();
-        }
-        else {
-            this.hour ++; 
-        }
-    }   
-    
-    public void timeIncrementMinute()
-    {
-        if (this.minute == 59)
-        {
-            this.minute = 0;
-            this.timeIncrementHour();
-        }
-        else
-        {
-            this.minute ++; 
-        }
-    }
-    
-    public void switchMeridien()
-    {
-        if(this.meridien.compareTo(Constants.AM_MERIDIEN) == 0)
-        {
-            this.meridien = Constants.PM_MERIDIEN;
-        }
-        else
-        {
-            this.meridien = Constants.AM_MERIDIEN;
-        }
-    }
-    
-    public void userIncrementHour()
-    {
-        this.timeIncrementHour();
-    }
-    
-    public void userIncrementMinute()
-    {
-       this.minute = (this.minute + 1) % 60; 
-    }
-    
-    public String getTotalTime()
-    {
-        return String.format("%02d", this.hour) + ":" + String.format("%02d", this.minute) + " " + this.meridien;
-    }
     
     public void printTotalTime()
     {
-        System.out.print(String.format("%02d", this.hour) + ":" + String.format("%02d", this.minute) + " " + this.meridien);
+        System.out.print(String.format("%02d", clockTime.hour) + ":" + String.format("%02d", clockTime.minute) + " " + clockTime.meridien);
     }
     
     public void start()
