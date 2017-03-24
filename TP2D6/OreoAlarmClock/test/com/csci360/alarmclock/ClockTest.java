@@ -76,7 +76,7 @@ public class ClockTest {
         Clock instance = new Clock();
         instance.switchMeridien();
         
-        String expResult = "PM";
+        String expResult = Constants.PM_MERIDIEN;
         String result = instance.getMeridien();
         assertEquals(expResult, result);
     }

@@ -10,7 +10,7 @@ package com.csci360.alarmclock;
  * @author gabriellecozart, donovanroseau
  * 
  */
-public class Alarm extends Clock{
+public class Alarm extends Clock {
     
    
     

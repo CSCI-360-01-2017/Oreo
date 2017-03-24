@@ -9,13 +9,7 @@ package com.csci360.alarmclock;
  *
  * @author gabriellecozart, brielenbeamon
  */
-public class Clock {
-    
-    //create private global variables for the clock
-    
-    public final String AM_MERIDIEN = "AM";
-    public final String PM_MERIDIEN = "PM";
-
+public class Clock { 
     
     public static int hour; // holds hours
     public static int minute; // holds minutes
@@ -25,7 +19,7 @@ public class Clock {
     {
         this.hour = 12;
         this.minute = 0;
-        this.meridien = this.AM_MERIDIEN;
+        this.meridien = Constants.AM_MERIDIEN;
     }
     
     public Clock(int hour, int minute, String meridien)
@@ -96,13 +90,13 @@ public class Clock {
     
     public void switchMeridien()
     {
-        if(this.meridien.compareTo(this.AM_MERIDIEN) == 0)
+        if(this.meridien.compareTo(Constants.AM_MERIDIEN) == 0)
         {
-            this.meridien = this.PM_MERIDIEN;
+            this.meridien = Constants.PM_MERIDIEN;
         }
         else
         {
-            this.meridien = this.AM_MERIDIEN;
+            this.meridien = Constants.AM_MERIDIEN;
         }
     }
     

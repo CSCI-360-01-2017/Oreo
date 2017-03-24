@@ -104,7 +104,7 @@ public class RadioTest {
     public void testIncrementMaxFMFrequency() {
         
         System.out.println("incrementMaxFMFrequency");
-        Radio instance = new Radio(Radio.MAX_FM_FREQUENCY, Radio.MAX_AM_FREQUENCY);
+        Radio instance = new Radio(Constants.MAX_FM_FREQUENCY, Constants.MAX_AM_FREQUENCY);
         instance.changeModulation();
         double expResult = 1610.0;
         double result = instance.getFrequency();
@@ -136,7 +136,7 @@ public class RadioTest {
     public void testDecrementMinFMFrequency() {
         
         System.out.println("decrementMinFMFrequency");
-        Radio instance = new Radio(Radio.MIN_FM_FREQUENCY, Radio.MIN_AM_FREQUENCY);
+        Radio instance = new Radio(Constants.MIN_FM_FREQUENCY, Constants.MIN_AM_FREQUENCY);
         instance.decrementFrequency();
         double expResult = 87.5;
         double result = instance.getFrequency();
@@ -151,7 +151,7 @@ public class RadioTest {
     public void testMaxBoundCrazyFMFrequency() { 
         
         System.out.println("MaxBoundFMFrequency");
-        Radio instance = new Radio(Radio.MAX_FM_FREQUENCY, Radio.MAX_AM_FREQUENCY);
+        Radio instance = new Radio(Constants.MAX_FM_FREQUENCY, Constants.MAX_AM_FREQUENCY);
         
         instance.decrementFrequency();
         for(int i = 0; i < 2; i ++)
@@ -175,7 +175,7 @@ public class RadioTest {
     public void testMinBoundCrazyFMFrequency() {
         
         System.out.println("MinBoundCrazyFMFrequency");
-        Radio instance = new Radio(Radio.MIN_FM_FREQUENCY, Radio.MAX_AM_FREQUENCY);
+        Radio instance = new Radio(Constants.MIN_FM_FREQUENCY, Constants.MAX_AM_FREQUENCY);
         
         instance.incrementFrequency();
         for(int i = 0; i < 2; i ++)
@@ -228,7 +228,7 @@ public class RadioTest {
     public void testIncrementMaxAMFrequency() {
         
         System.out.println("incrementMaxAMFrequency");
-        Radio instance = new Radio(Radio.MAX_FM_FREQUENCY, Radio.MAX_AM_FREQUENCY);
+        Radio instance = new Radio(Constants.MAX_FM_FREQUENCY, Constants.MAX_AM_FREQUENCY);
         instance.changeModulation();
         double expResult = 1610.0;
         double result = instance.getFrequency();
@@ -259,7 +259,7 @@ public class RadioTest {
     public void testDecrementMinAMFrequency() {
         
         System.out.println("decrementMinAMFrequency");
-        Radio instance = new Radio(Radio.MIN_FM_FREQUENCY, Radio.MIN_AM_FREQUENCY);
+        Radio instance = new Radio(Constants.MIN_FM_FREQUENCY, Constants.MIN_AM_FREQUENCY);
         instance.changeModulation();
         instance.decrementFrequency();
         double expResult = 520.0;
@@ -275,7 +275,7 @@ public class RadioTest {
     public void testMaxBoundCrazyAMFrequency() {
         
         System.out.println("MaxBoundCrazyAMFrequency");
-        Radio instance = new Radio(Radio.MAX_FM_FREQUENCY, Radio.MAX_AM_FREQUENCY);
+        Radio instance = new Radio(Constants.MAX_FM_FREQUENCY, Constants.MAX_AM_FREQUENCY);
         instance.changeModulation();
         
         instance.decrementFrequency();
@@ -300,7 +300,7 @@ public class RadioTest {
     public void testMinBoundCrazyAMFrequency() {
         
         System.out.println("MinBoundCrazyAMFrequency");
-        Radio instance = new Radio(Radio.MIN_FM_FREQUENCY, Radio.MAX_AM_FREQUENCY);
+        Radio instance = new Radio(Constants.MIN_FM_FREQUENCY, Constants.MAX_AM_FREQUENCY);
         instance.changeModulation();
         
         instance.incrementFrequency();
