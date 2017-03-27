@@ -19,14 +19,14 @@ public class Controller {
     public void plugInSystem()
     {
         this.isSystemOn = true;
-        this.clock.start();
+        this.clock.startTimer();
         
     }
     
     public void unplugSystem() // this is shit - Griffin
     {
         this.isSystemOn = false;
-        this.clock.stop();
+        this.clock.stopTimer();
     }
         
     public void checkAlarm()

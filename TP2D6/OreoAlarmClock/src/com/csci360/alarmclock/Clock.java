@@ -5,6 +5,9 @@
  */
 package com.csci360.alarmclock;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  *
  * @author gabriellecozart, brielenbeamon
@@ -13,11 +16,15 @@ public class Clock {
     
     public Controller controller;
     private Time clockTime;
+    private Timer timer;
     
-    public Clock(Controller cont) {
+    public Clock(Controller controller) {
         
-        this.controller = cont;
-        clockTime = new Time();
+        this.controller = controller;
+        this.clockTime = new Time();
+        this.timer = new Timer();
+        startTimer();
+        
     }
     
     public void printTotalTime()
@@ -25,13 +32,21 @@ public class Clock {
         System.out.print(String.format("%02d", clockTime.getHour()) + ":" + String.format("%02d", clockTime.getMinute()) + " " + clockTime.getMeridien());
     }
     
-    public void start()
+    public void startTimer()
     {
+        timer.schedule( new TimerTask() {
+            @Override
+            public void run() {
+                clockTimeIncrementMinute();
+            }
+        }, 0, Constants.MINUTE_INTERVAL); 
         System.out.print("Timer has begun");
+        
     }
     
-    public void stop()
+    public void stopTimer()
     {
+        timer.cancel();
         System.out.print("Timer has stopped");
     }
     
@@ -39,6 +54,7 @@ public class Clock {
     {
         this.clockTime.timeIncrementMinute();
         this.controller.checkAlarm();
+        System.out.println(this.clockTime.getTotalTime());
     }
     
     public Time getClockTime() {
@@ -46,4 +62,11 @@ public class Clock {
         return clockTime;
         
     }
+    
+    /*public static void main(String[] args) {
+        Clock myClock = new Clock(this.controller);
+        myClock.startTimer();
+    }*/
+    
+    
 }

@@ -37,28 +37,66 @@ public class ClockTest {
     public void tearDown() {
     }
 
+   
+
     /**
-     * Test of start method, of class Clock.
+     * Test of printTotalTime method, of class Clock.
      */
     @Test
-    public void testStart() {
-        System.out.println("start");
-        Clock instance = new Clock();
-        instance.start();
-        
+    public void testPrintTotalTime() {
+        System.out.println("printTotalTime");
+        Clock instance = null;
+        instance.printTotalTime();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of stop method, of class Clock.
+     * Test of startTimer method, of class Clock.
      */
     @Test
-    public void testStop() {
-        System.out.println("stop");
-        Clock instance = new Clock();
-        instance.stop();
-        
+    public void testStartTimer() {
+        System.out.println("startTimer");
+        Clock instance = null;
+        instance.startTimer();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of stopTimer method, of class Clock.
+     */
+    @Test
+    public void testStopTimer() {
+        System.out.println("stopTimer");
+        Clock instance = null;
+        instance.stopTimer();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of clockTimeIncrementMinute method, of class Clock.
+     */
+    @Test
+    public void testClockTimeIncrementMinute() {
+        System.out.println("clockTimeIncrementMinute");
+        Clock instance = null;
+        instance.clockTimeIncrementMinute();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getClockTime method, of class Clock.
+     */
+    @Test
+    public void testGetClockTime() {
+        System.out.println("getClockTime");
+        Clock instance = null;
+        Time expResult = null;
+        Time result = instance.getClockTime();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
