@@ -11,17 +11,7 @@ package com.csci360.alarmclock;
  */
 public class Radio {
     
-    private static final int MAX_VOLUME = 10; 
-    private static final int MIN_VOLUME = 0;
-    public static final double MIN_FM_FREQUENCY = 87.5;
-    public static final double MAX_FM_FREQUENCY = 108.1;
-    public static final double MIN_AM_FREQUENCY = 520.0;
-    public static final double MAX_AM_FREQUENCY = 1610.0;
-
-    private static final String MOD_AM = "AM";
-    private static final String MOD_FM = "FM";
-    private static final double FM_INTERVAL = 0.2;
-    private static final double AM_INTERVAL = 1.0;
+    
   
     private int volume;
     private double AMfrequency;
@@ -36,8 +26,8 @@ public class Radio {
     public Radio() {
         
         this.volume = 5;
-        this.FMfrequency = this.MIN_FM_FREQUENCY;
-        this.AMfrequency = this.MIN_AM_FREQUENCY;
+        this.FMfrequency = Constants.MIN_FM_FREQUENCY;
+        this.AMfrequency = Constants.MIN_AM_FREQUENCY;
         this.isFM = true;
         this.isOn = true;
     }
@@ -61,7 +51,7 @@ public class Radio {
      */
     public void incrementVolume() {
         
-        if(this.volume < this.MAX_VOLUME)
+        if(this.volume < Constants.MAX_VOLUME)
         {
             this.volume = volume + 1;
         }
@@ -76,7 +66,7 @@ public class Radio {
      */
     public void decrementVolume() {
         
-        if(this.volume > this.MIN_VOLUME)
+        if(this.volume > Constants.MIN_VOLUME)
         {
             this.volume = volume - 1;
         }
@@ -111,9 +101,9 @@ public class Radio {
         
         if(this.isFM == true)
         {
-            if(this.FMfrequency < this.MAX_FM_FREQUENCY)
+            if(this.FMfrequency < Constants.MAX_FM_FREQUENCY)
             {
-                this.FMfrequency = this.FMfrequency + this.FM_INTERVAL;
+                this.FMfrequency = this.FMfrequency + Constants.FM_INTERVAL;
             }
             else // at cap
             {
@@ -122,9 +112,9 @@ public class Radio {
         }
         else // this.isFM == false
         {
-            if(this.AMfrequency < this.MAX_AM_FREQUENCY)
+            if(this.AMfrequency < Constants.MAX_AM_FREQUENCY)
             {
-                this.AMfrequency = this.AMfrequency + this.AM_INTERVAL;
+                this.AMfrequency = this.AMfrequency + Constants.AM_INTERVAL;
             }
             else // at cap
             {
@@ -140,9 +130,9 @@ public class Radio {
         
         if(this.isFM == true)
         {
-            if(this.FMfrequency > this.MIN_FM_FREQUENCY)
+            if(this.FMfrequency > Constants.MIN_FM_FREQUENCY)
             {
-                this.FMfrequency = this.FMfrequency - this.FM_INTERVAL;
+                this.FMfrequency = this.FMfrequency - Constants.FM_INTERVAL;
             }
             else // at cap
             {
@@ -151,9 +141,9 @@ public class Radio {
         }
         else // this.isFM == false
         {
-            if(this.AMfrequency > this.MIN_AM_FREQUENCY)
+            if(this.AMfrequency > Constants.MIN_AM_FREQUENCY)
             {
-                this.AMfrequency = this.AMfrequency - this.AM_INTERVAL;
+                this.AMfrequency = this.AMfrequency - Constants.AM_INTERVAL;
             }
             else // at cap
             {
@@ -190,15 +180,15 @@ public class Radio {
      */
     public String getModString() {
         
-        String result = this.MOD_FM; 
+        String result = Constants.MOD_FM; 
         
         if(this.isFM == true)
         {
-            result = this.MOD_FM;
+            result = Constants.MOD_FM;
         }
         else
         {
-            result = this.MOD_AM;
+            result = Constants.MOD_AM;
         }
         
         return result;
