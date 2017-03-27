@@ -12,7 +12,7 @@ package com.csci360.alarmclock;
 public class Controller {
     
     private boolean isSystemOn = false;
-    private Clock clock = new Clock();
+    private Clock clock = new Clock(this);
     private Alarm alarm1 = new Alarm();
     private Alarm alarm2 = new Alarm();
     
@@ -23,10 +23,32 @@ public class Controller {
         
     }
     
-    public void unplugSystem()
+    public void unplugSystem() // this is shit - Griffin
     {
         this.isSystemOn = false;
         this.clock.stop();
     }
+        
+    public void checkAlarm()
+    {
+        
+        Time timeOfAlarm1 = this.alarm1.getAlarmTime();
+        Time timeOfAlarm2 = this.alarm2.getAlarmTime();
+        Time timeOfClock = this.clock.getClockTime();
+        
+        if(this.alarm1.getIsSet() && timeOfAlarm1.equals(timeOfClock))
+        {
+            alarm1.soundAlarm();        
+        }
+        
+        else if(this.alarm2.getIsSet() && timeOfAlarm2.equals(timeOfClock))
+        {
+            alarm2.soundAlarm();
+        }
+        
+        else {
+            // do nothing
+        }
     
+    }
 }

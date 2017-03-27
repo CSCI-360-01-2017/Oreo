@@ -11,9 +11,9 @@ package com.csci360.alarmclock;
  */
 public class Time {
     
-    public int hour;
-    public int minute; 
-    public String meridien;
+    private int hour;
+    private int minute; 
+    private String meridien;
     
     public Time()
     {
@@ -112,6 +112,22 @@ public class Time {
     {
        this.minute = (this.minute + 1) % 60; 
     }
+    
+    @Override
+    public boolean equals(Object other) 
+    {
+        boolean result = false;
+        if(other instanceof Time)
+        {
+            Time otherTime = (Time) other;
+            if(this.hour == otherTime.getHour() && this.minute == otherTime.getMinute() && this.meridien.equals(otherTime.getMeridien()))
+            {
+                result = true;
+            }
+        }
+        return result;
+    }
+    
     
     public String getTotalTime()
     {

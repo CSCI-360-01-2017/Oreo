@@ -10,63 +10,22 @@ package com.csci360.alarmclock;
  * @author gabriellecozart, donovanroseau
  * 
  */
-public class Alarm extends Clock {
+public class Alarm {
     
-   
-    
-    private int hour; // holds hours
-    private int minute; // holds minutes
-    private String meridien; // holds AM or PM
-    
-    
-    
+    private Time alarmTime;
     private boolean isSet;
+    private boolean alarming;
     
     
     
     public Alarm()
     {
-        this.hour = 12;
-        this.minute = 00;
-        this.meridien = "AM"; // exchang this for a global final AM_MERIDIEN
+        alarmTime = new Time();
         this.isSet = false;
+        alarming = false;
     }
     
-    public void setHour(int hour)
-    {
-        this.hour = hour;
-    }
-    
-    public void setMinute(int minute)
-    {
-        this.minute = minute;
-    }
-    
-    public void setMeridien(String meridien)
-    {
-        this.meridien = meridien;
-    }
-    
-    /**
-     * @return the hour
-     */
-    public int getAlarmHour() {
-        return this.hour;
-    }
-
-    /**
-     * @return the min
-     */
-    public int getAlarmMinute() {
-        return this.minute;
-    }
-
-    /**
-     * @return the alarmMod
-     */
-    public String getAlarmMeridien() {
-        return this.meridien;
-    }
+   
     
     public boolean getIsSet() {
         return this.isSet;
@@ -87,68 +46,28 @@ public class Alarm extends Clock {
     
     public void incrementAlarmHour()
     {
-        if (this.hour == 12)
-        {
-            this.hour = 1;
-        }
-        else if (this.hour == 11)
-        {
-            this.hour ++;
-            this.switchMeridien();
-        }
-        else {
-            this.hour ++; 
-        }
+        alarmTime.userIncrementHour();
     }
     
     public void incrementAlarmMinute()
     {
-        this.minute = (this.minute + 1) % 60;
+        alarmTime.userIncrementMinute();
     }
-    
-    public boolean isAlarmTimeEqualToClockTime()
-    {
-        boolean result = false;
-        
-        if(this.isSet)
-        {
-            result = this.hour == super.getHour() && this.minute == super.getMinute() 
-                    && this.meridien.compareTo(super.getMeridien()) == 0;
-        }
-        else
-        {
-            // do nothing
-        }
-        
-        return result;
+
+    public Time getAlarmTime() {
+        return alarmTime;
     }
     
     public void soundAlarm()
     {
-        if(this.isAlarmTimeEqualToClockTime())
-        {
-            Radio radio = new Radio();
-            radio.playFrequency();
-        }
-        else
-        {
-            // do nothing
-        }
+        alarming = true;
+        Radio radio = new Radio();
+        radio.playFrequency();
+        
     }
     
     public boolean isAlarming()
     {
-        boolean alarming = false;
-        
-        if(this.isAlarmTimeEqualToClockTime())
-        {
-            alarming = true;
-        }
-        else 
-        {
-            // do nothing
-        }
-        
         return alarming;
     }
     
@@ -157,7 +76,7 @@ public class Alarm extends Clock {
         if(this.isAlarming())  // probably don't need to check if set
         {
             this.isSet = false;
-            this.minute = this.minute + 9;
+            alarmTime.setMinute(alarmTime.getMinute() + 9);
             this.isSet = true;
         }
         else {
