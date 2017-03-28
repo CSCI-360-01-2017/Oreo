@@ -10,7 +10,7 @@ import java.util.TimerTask;
 
 /**
  *
- * @author gabriellecozart, brielenbeamon
+ * @author gabriellecozart, brielenbeamon, donovanroseau
  */
 public class Clock { 
     
@@ -18,30 +18,17 @@ public class Clock {
     private Time clockTime;
     private Timer timer;
     
-    public Clock(Controller controller) {
-        
+    public Clock() {
         this.controller = controller;
         this.clockTime = new Time();
-        this.timer = new Timer();
-        startTimer();
+        //this.timer = new Timer();
+        //timer.schedule(new RemindTask(), seconds * 1000);
         
     }
     
     public void printTotalTime()
     {
         System.out.print(String.format("%02d", clockTime.getHour()) + ":" + String.format("%02d", clockTime.getMinute()) + " " + clockTime.getMeridien());
-    }
-    
-    public void startTimer()
-    {
-        timer.schedule( new TimerTask() {
-            @Override
-            public void run() {
-                clockTimeIncrementMinute();
-            }
-        }, 0, Constants.MINUTE_INTERVAL); 
-        System.out.print("Timer has begun");
-        
     }
     
     public void stopTimer()
@@ -53,7 +40,7 @@ public class Clock {
    public void clockTimeIncrementMinute()
     {
         this.clockTime.timeIncrementMinute();
-        this.controller.checkAlarm();
+        //this.controller.checkAlarm();
         System.out.println(this.clockTime.getTotalTime());
     }
     
@@ -63,10 +50,21 @@ public class Clock {
         
     }
     
-    /*public static void main(String[] args) {
-        Clock myClock = new Clock(this.controller);
-        myClock.startTimer();
-    }*/
+    public static void main(String[] args) {
+        Clock myClock = new Clock();
+        Timer timer = new Timer();
+        Alarm alarm1 = new Alarm();
+        System.out.println("Time for alarm1 is  " + alarm1.getAlarmTime());
+        TimerTask task = new TimerTask()
+        {
+            public void run()
+            {
+                myClock.clockTimeIncrementMinute();
+                System.out.println(myClock.getClockTime());
+            }
+        };
+        timer.schedule(task, 5000, 5000);
+    }
     
     
 }

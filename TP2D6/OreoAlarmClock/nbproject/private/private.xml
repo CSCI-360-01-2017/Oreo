@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/gabriellecozart/Development/Oreo/TP2D6/OreoAlarmClock/test/com/csci360/alarmclock/ClockTest.java</file>
-            <file>file:/Users/gabriellecozart/Development/Oreo/TP2D6/OreoAlarmClock/src/com/csci360/alarmclock/Radio.java</file>
-            <file>file:/Users/gabriellecozart/Development/Oreo/TP2D6/OreoAlarmClock/src/com/csci360/alarmclock/Clock.java</file>
+            <file>file:/Users/donovanroseau/Development/Oreo/TP2D6/OreoAlarmClock/src/com/csci360/alarmclock/Constants.java</file>
+            <file>file:/Users/donovanroseau/Development/Oreo/TP2D6/OreoAlarmClock/src/com/csci360/alarmclock/Controller.java</file>
+            <file>file:/Users/donovanroseau/Development/Oreo/TP2D6/OreoAlarmClock/src/com/csci360/alarmclock/Radio.java</file>
+            <file>file:/Users/donovanroseau/Development/Oreo/TP2D6/OreoAlarmClock/src/com/csci360/alarmclock/Time.java</file>
+            <file>file:/Users/donovanroseau/Development/Oreo/TP2D6/OreoAlarmClock/src/com/csci360/alarmclock/Clock.java</file>
+            <file>file:/Users/donovanroseau/Development/Oreo/TP2D6/OreoAlarmClock/src/com/csci360/alarmclock/Alarm.java</file>
         </group>
     </open-files>
 </project-private>
