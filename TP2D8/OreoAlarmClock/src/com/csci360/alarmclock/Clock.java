@@ -40,31 +40,13 @@ public class Clock {
    public void clockTimeIncrementMinute()
     {
         this.clockTime.timeIncrementMinute();
-        //this.controller.checkAlarm();
         System.out.println(this.clockTime.getTotalTime());
     }
     
-    public Time getClockTime() {
+    public Time getClockTime() 
+    {
         
         return clockTime;
         
     }
-    
-    public static void main(String[] args) {
-        Clock myClock = new Clock();
-        Timer timer = new Timer();
-        Alarm alarm1 = new Alarm();
-        System.out.println("Time for alarm1 is  " + alarm1.getAlarmTime());
-        TimerTask task = new TimerTask()
-        {
-            public void run()
-            {
-                myClock.clockTimeIncrementMinute();
-                System.out.println(myClock.getClockTime());
-            }
-        };
-        timer.schedule(task, 5000, 5000);
-    }
-    
-    
 }
