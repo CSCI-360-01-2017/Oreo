@@ -15,12 +15,14 @@ public class Alarm {
     private Time alarmTime;
     private boolean isSet;
     private boolean alarming;
+    private Radio radio;
     
     
     
     public Alarm()
     {
         alarmTime = new Time();
+        radio = new Radio();
         this.isSet = false;
         alarming = false;
     }
@@ -61,8 +63,7 @@ public class Alarm {
     public void soundAlarm()
     {
         alarming = true;
-        Radio radio = new Radio();
-        radio.playFrequency();
+        radio.printPlayFrequency();
         
     }
     
@@ -84,4 +85,5 @@ public class Alarm {
         }
         
     }
+    
 }

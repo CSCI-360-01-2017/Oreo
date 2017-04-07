@@ -20,11 +20,12 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private Label label;
+    private Label clockTime;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        clockTime.setText("This is the time!!!!");
     }
     
     @Override
