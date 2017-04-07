@@ -14,7 +14,7 @@ import java.util.TimerTask;
  */
 public class Controller {
     
-    private boolean isSystemOn = false;
+    //private boolean isSystemOn = false;
     private Clock clock = new Clock();
     private Alarm alarm1 = new Alarm();
     private Alarm alarm2 = new Alarm();
