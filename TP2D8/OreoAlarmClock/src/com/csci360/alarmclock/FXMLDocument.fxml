@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oreoalarmclock.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
+<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="473.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="oreoalarmclock.FXMLDocumentController">
+   <children>
+      <HBox prefHeight="38.0" prefWidth="475.0" style="-fx-background-color: black;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="240.0" text="Clock" />
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="240.0" text="Radio" />
+         </children>
+      </HBox>
+      <VBox fx:id="clockTime" layoutX="23.0" layoutY="162.0" prefHeight="151.0" prefWidth="436.0" style="-fx-background-color: black;" />
+   </children>
 </AnchorPane>
