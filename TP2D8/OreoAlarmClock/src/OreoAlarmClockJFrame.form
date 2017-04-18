@@ -89,27 +89,35 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                          <Component id="TimeLabel" min="-2" pref="289" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="Alarm1ToggleButton" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Alarm2ToggleButton" min="-2" pref="173" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                          <Component id="TimeToggleButton" min="-2" pref="104" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="HourButton" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace pref="43" max="32767" attributes="0"/>
-                          <Component id="MinuteButton" min="-2" pref="72" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="SnoozeButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                          <EmptySpace min="78" pref="78" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="Alarm1OnOffSwitch" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                                  <Component id="Alarm2OnOffSwitch" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Component id="TimeLabel" min="-2" pref="289" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="Alarm1ToggleButton" min="-2" pref="180" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="Alarm2ToggleButton" min="-2" pref="180" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="TimeToggleButton" min="-2" pref="104" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="HourButton" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="MinuteButton" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="SnoozeButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="87" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -117,25 +125,21 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="HourButton" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="TimeToggleButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="SnoozeButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="MinuteButton" alignment="3" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Alarm2ToggleButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="HourButton" alignment="3" max="32767" attributes="0"/>
+                              <Component id="TimeToggleButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MinuteButton" alignment="3" max="32767" attributes="0"/>
+                              <Component id="SnoozeButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="Alarm1ToggleButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Alarm2ToggleButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="Alarm1OnOffSwitch" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Alarm2OnOffSwitch" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="TimeLabel" min="-2" pref="79" max="-2" attributes="0"/>
@@ -157,6 +161,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Minute"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MinuteButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="SnoozeButton">
                   <Properties>
@@ -170,16 +177,25 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Set Time"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TimeToggleButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="Alarm1ToggleButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Set Alarm 1"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Alarm1ToggleButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="Alarm2ToggleButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Set Alarm 2"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Alarm2ToggleButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="TimeLabel">
                   <Properties>
@@ -190,6 +206,22 @@
                     <Property name="text" type="java.lang.String" value="12:00 AM"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JToggleButton" name="Alarm1OnOffSwitch">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Alarm 1 Off"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Alarm1OnOffSwitchActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JToggleButton" name="Alarm2OnOffSwitch">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Alarm 2 Off"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Alarm2OnOffSwitchActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

@@ -129,7 +129,7 @@ public class Time {
     }
     
     
-    public String getTotalTime()
+    public String toString()
     {
         return String.format("%02d", this.hour) + ":" + String.format("%02d", this.minute) + " " + this.meridien;
     }
