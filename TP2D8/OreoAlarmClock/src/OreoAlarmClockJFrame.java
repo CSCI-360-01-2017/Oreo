@@ -1,3 +1,11 @@
+
+import com.csci360.alarmclock.Controller;
+import com.csci360.alarmclock.Time;
+import java.awt.Color;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +23,17 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
      */
     public OreoAlarmClockJFrame() {
         initComponents();
+        Timer timer = new Timer();
+        this.controller = Controller.start();
+        
+        TimerTask task = new TimerTask()
+        {
+            public void run()
+            {
+                updateTimeLabel();
+            }
+        };
+        timer.schedule(task, 500, 500);
     }
 
     /**
@@ -37,6 +56,8 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         Alarm1ToggleButton = new javax.swing.JToggleButton();
         Alarm2ToggleButton = new javax.swing.JToggleButton();
         TimeLabel = new javax.swing.JLabel();
+        Alarm1OnOffSwitch = new javax.swing.JToggleButton();
+        Alarm2OnOffSwitch = new javax.swing.JToggleButton();
         RadioPanel = new javax.swing.JPanel();
         FrequencyLabel = new javax.swing.JLabel();
         FMButton = new javax.swing.JRadioButton();
@@ -63,6 +84,11 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         });
 
         MinuteButton.setText("Minute");
+        MinuteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MinuteButtonActionPerformed(evt);
+            }
+        });
 
         SnoozeButton.setText("Snooze");
         SnoozeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -72,59 +98,91 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         });
 
         TimeToggleButton.setText("Set Time");
+        TimeToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TimeToggleButtonActionPerformed(evt);
+            }
+        });
 
         Alarm1ToggleButton.setText("Set Alarm 1");
+        Alarm1ToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Alarm1ToggleButtonActionPerformed(evt);
+            }
+        });
 
         Alarm2ToggleButton.setText("Set Alarm 2");
+        Alarm2ToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Alarm2ToggleButtonActionPerformed(evt);
+            }
+        });
 
         TimeLabel.setFont(new java.awt.Font("Lucida Sans", 0, 48)); // NOI18N
         TimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TimeLabel.setText("12:00 AM");
         TimeLabel.setToolTipText("");
 
+        Alarm1OnOffSwitch.setText("Alarm 1 Off");
+        Alarm1OnOffSwitch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Alarm1OnOffSwitchActionPerformed(evt);
+            }
+        });
+
+        Alarm2OnOffSwitch.setText("Alarm 2 Off");
+        Alarm2OnOffSwitch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Alarm2OnOffSwitchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(TimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Alarm1ToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Alarm2ToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(TimeToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HourButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(MinuteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SnoozeButton)
-                .addGap(75, 75, 75))
+                .addGap(78, 78, 78)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(Alarm1OnOffSwitch)
+                        .addGap(138, 138, 138)
+                        .addComponent(Alarm2OnOffSwitch))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addComponent(TimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(Alarm1ToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Alarm2ToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(TimeToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(HourButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(12, 12, 12)
+                            .addComponent(MinuteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(SnoozeButton))))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(73, 73, 73)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(HourButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TimeToggleButton))
-                        .addGap(41, 41, 41))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(SnoozeButton)
-                            .addComponent(MinuteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Alarm2ToggleButton)
-                    .addComponent(Alarm1ToggleButton))
+                    .addComponent(HourButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TimeToggleButton)
+                    .addComponent(MinuteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SnoozeButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Alarm1ToggleButton)
+                    .addComponent(Alarm2ToggleButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Alarm1OnOffSwitch)
+                    .addComponent(Alarm2OnOffSwitch))
                 .addGap(33, 33, 33)
                 .addComponent(TimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
@@ -247,7 +305,63 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
 
     private void HourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HourButtonActionPerformed
         // TODO add your handling code here:
+        this.controller.userIncrementHour();
+        this.updateTimeLabel();
     }//GEN-LAST:event_HourButtonActionPerformed
+
+    private void Alarm1ToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alarm1ToggleButtonActionPerformed
+        // TODO add your handling code here:
+        this.controller.toggleSetAlarm1();
+        this.updateTimeLabel();
+    }//GEN-LAST:event_Alarm1ToggleButtonActionPerformed
+
+    private void TimeToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeToggleButtonActionPerformed
+        // TODO add your handling code here:
+        this.controller.toggleSetTime();
+    }//GEN-LAST:event_TimeToggleButtonActionPerformed
+
+    private void MinuteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinuteButtonActionPerformed
+        // TODO add your handling code here:
+        this.controller.userIncrementMinute();
+        this.updateTimeLabel();
+    }//GEN-LAST:event_MinuteButtonActionPerformed
+
+    private void Alarm2ToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alarm2ToggleButtonActionPerformed
+        // TODO add your handling code here:
+        this.controller.toggleSetAlarm2();
+        this.updateTimeLabel();
+    }//GEN-LAST:event_Alarm2ToggleButtonActionPerformed
+
+    private void Alarm1OnOffSwitchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alarm1OnOffSwitchActionPerformed
+        // TODO add your handling code here:
+        if(this.Alarm1OnOffSwitch.isSelected())
+        {
+            this.Alarm1OnOffSwitch.setText("Alarm 1 On");
+            this.controller.toggleAlarm1EnabledBoolean();
+        }
+        else
+        {
+            this.Alarm1OnOffSwitch.setText("Alarm 1 Off");
+            this.controller.toggleAlarm1EnabledBoolean();
+
+        }
+    }//GEN-LAST:event_Alarm1OnOffSwitchActionPerformed
+
+    private void Alarm2OnOffSwitchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Alarm2OnOffSwitchActionPerformed
+        // TODO add your handling code here:
+        if(this.Alarm2OnOffSwitch.isSelected())
+        {
+            this.Alarm2OnOffSwitch.setText("Alarm 2 On");
+            this.controller.toggleAlarm2EnabledBoolean();
+
+        }
+        else
+        {
+            this.Alarm2OnOffSwitch.setText("Alarm 2 Off");
+            this.controller.toggleAlarm2EnabledBoolean();
+
+        }
+    }//GEN-LAST:event_Alarm2OnOffSwitchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,11 +396,15 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
                 new OreoAlarmClockJFrame().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton AMButton;
+    private javax.swing.JToggleButton Alarm1OnOffSwitch;
     private javax.swing.JToggleButton Alarm1ToggleButton;
+    private javax.swing.JToggleButton Alarm2OnOffSwitch;
     private javax.swing.JToggleButton Alarm2ToggleButton;
     private javax.swing.JPanel ClockPanel;
     private javax.swing.JButton DecrementFrequencyButton;
@@ -307,4 +425,41 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
+
+    Controller controller;
+    
+    private void blinkTime()
+    {
+        this.TimeLabel.setVisible(!this.TimeLabel.isVisible());
+    }
+    
+    private void blinkBackground()
+    {
+        if(this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected())
+        {
+            this.jPanel3.setBackground(Color.magenta);
+            this.jPanel3.setVisible(!this.jPanel3.isVisible());
+        }
+    }
+    
+    private void updateTimeLabel() {
+        
+        if(this.TimeToggleButton.isSelected()) {
+            blinkTime();
+            this.TimeLabel.setText(this.controller.getTime().toString());
+        } else if(this.Alarm1ToggleButton.isSelected()) {
+            blinkTime();
+            this.TimeLabel.setText(this.controller.getAlarm1Time());
+        } else if(this.Alarm2ToggleButton.isSelected()) {
+            blinkTime();
+            this.TimeLabel.setText(this.controller.getAlarm2Time());    
+        } else {
+            this.TimeLabel.setVisible(true);
+            this.TimeLabel.setText(this.controller.getTime().toString());
+            blinkBackground();
+        }
+        
+    }
+
+
 }

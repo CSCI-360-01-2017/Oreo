@@ -26,7 +26,7 @@ public class Clock {
         
     }
     
-    public void printTotalTime()
+    public void TotalTime()
     {
         System.out.print(String.format("%02d", clockTime.getHour()) + ":" + String.format("%02d", clockTime.getMinute()) + " " + clockTime.getMeridien());
     }
@@ -40,7 +40,7 @@ public class Clock {
    public void clockTimeIncrementMinute()
     {
         this.clockTime.timeIncrementMinute();
-        System.out.println(this.clockTime.getTotalTime());
+        System.out.println(this.clockTime.toString());
     }
     
     public Time getClockTime() 

@@ -15,23 +15,129 @@ import java.util.TimerTask;
 public class Controller {
     
     //private boolean isSystemOn = false;
-    private Clock clock = new Clock();
-    private Alarm alarm1 = new Alarm();
-    private Alarm alarm2 = new Alarm();
-    private Radio radio = new Radio();
     
-    /*public void plugInSystem()
-    {
-        this.isSystemOn = true;
-        //this.clock.startTimer();
-        
+    private boolean setTime;
+    private boolean alarm1ToggleBoolean;
+    private boolean alarm2ToggleBoolean;
+    private boolean alarm1EnabledBoolean;
+    private boolean alarm2EnabledBoolean;
+    private boolean soundAlarm;
+    private Clock clock;
+    private Alarm alarm1;
+    private Alarm alarm2;
+    private Radio radio;
+    
+    public Controller() {
+        this.setTime = false;
+        this.alarm1ToggleBoolean = false;
+        this.alarm2ToggleBoolean = false;
+        this.alarm1EnabledBoolean = false;
+        this.alarm2EnabledBoolean = false;
+        this.soundAlarm = false;
+        this.clock = new Clock();
+        this.alarm1 = new Alarm();
+        this.alarm2 = new Alarm();
+        this.radio = new Radio();
     }
     
-    public void unplugSystem()
+    
+    public Clock getClock()
     {
-        this.isSystemOn = false;
-        this.clock.stopTimer();
-    }*/
+        return clock;
+    }
+    
+    public void userIncrementHour() 
+    {
+        if (this.setTime) {
+            this.clock.getClockTime().userIncrementHour();
+        } else if (this.alarm1ToggleBoolean) {
+            this.alarm1.incrementAlarmHour();
+        } else if (this.alarm2ToggleBoolean) {
+            this.alarm2.incrementAlarmHour();
+        }
+            
+    }
+    
+    public void userIncrementMinute()
+    {
+        if (this.setTime) {
+            this.clock.getClockTime().userIncrementMinute();
+        } else if (this.alarm1ToggleBoolean) {
+            this.alarm1.incrementAlarmMinute();
+        } else if (this.alarm2ToggleBoolean) {
+            this.alarm2.incrementAlarmMinute();
+        }
+    }
+    
+    public String getAlarm1Time()
+    {
+        return this.alarm1.getAlarmTime().toString();
+    }
+    
+    public String getAlarm2Time()
+    {
+        return this.alarm2.getAlarmTime().toString();
+    }
+    
+    public void toggleSetTime()
+    {
+        this.setTime = !this.setTime;
+    }
+    
+    public void toggleSetAlarm1()
+    {
+        this.alarm1ToggleBoolean = !this.alarm1ToggleBoolean;
+    }
+    
+    public void toggleSetAlarm2()
+    {
+        this.alarm2ToggleBoolean = !this.alarm2ToggleBoolean;
+    }
+    
+    public boolean getAlarm1ToggleBoolean()
+    {
+        return this.alarm1ToggleBoolean;
+    }
+    
+    public boolean getAlarm2ToggleBoolean()
+    {
+        return this.alarm2ToggleBoolean;
+    }
+    
+    public void toggleAlarm1EnabledBoolean()
+    {
+        this.alarm1EnabledBoolean = !this.alarm1EnabledBoolean;
+    }
+    
+    public void toggleAlarm2EnabledBoolean()
+    {
+        this.alarm2EnabledBoolean = !this.alarm2EnabledBoolean;
+    }
+    
+    public boolean getAlarm1EnabledBoolean()
+    {
+        return this.alarm1EnabledBoolean;
+    }
+    
+    public boolean getAlarm2EnabledBoolean()
+    {
+        return this.alarm2EnabledBoolean;
+    }
+    
+    public Time getTime() 
+    {
+        return this.clock.getClockTime();
+    }
+    
+    public boolean isAlarmSounding()
+    {
+        return this.soundAlarm;
+    }
+    
+    public void setAlarmSounding()
+    {
+        this.soundAlarm = !this.soundAlarm;
+    }
         
     /**
      * Checks each alarm time. Plays the radio if the alarm has been set and 
@@ -40,21 +146,16 @@ public class Controller {
     public void checkAlarm()
     {
         
-        this.alarm1.getAlarmTime();
-        this.alarm2.getAlarmTime();
-        //Time timeOfAlarm2 = this.alarm2.getAlarmTime();
-        //Time timeOfClock = this.clock.getClockTime();
-        
-        if(alarm1.getIsSet() == true && 
-          alarm1.getAlarmTime().getTotalTime().equals(clock.getClockTime().getTotalTime()))
+        if(getAlarm1EnabledBoolean() && 
+          alarm1.getAlarmTime().toString().equals(clock.getClockTime().toString()))
         {
-            alarm1.soundAlarm();        
+            this.setAlarmSounding();        
         }
         
-        else if(alarm2.getIsSet() == true && 
-                alarm2.getAlarmTime().getTotalTime().equals(clock.getClockTime().getTotalTime()))
+        else if(getAlarm2EnabledBoolean() && 
+                alarm2.getAlarmTime().toString().equals(clock.getClockTime().toString()))
         {
-            alarm2.soundAlarm();
+            this.setAlarmSounding();
         }
         
         else {
@@ -62,34 +163,21 @@ public class Controller {
         }
     
     }
-    public static void main(String[] args) {
+    public static Controller start() {
         Timer timer = new Timer();
         Controller trol = new Controller();
   
-        trol.alarm1.getAlarmTime();
-        trol.alarm1.enableDisableAlarmSwitch();
-        
-        trol.alarm2.getAlarmTime();
-        
-        trol.alarm1.incrementAlarmMinute();
-        trol.alarm1.incrementAlarmMinute();
-        trol.alarm1.incrementAlarmMinute();
-        
-        trol.alarm2.incrementAlarmMinute();
-        trol.alarm2.incrementAlarmMinute();
-
-        
         TimerTask task = new TimerTask()
         {
             public void run()
             {
                 trol.clock.clockTimeIncrementMinute();
-                trol.checkAlarm();
-           
-                
+                trol.checkAlarm();      
             }
         };
         timer.schedule(task, 5000, 5000);
+        
+        return trol;
     }
     
 }
