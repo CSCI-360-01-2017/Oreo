@@ -4,9 +4,12 @@ package com.csci360.gui;
 import com.csci360.alarmclock.Controller;
 import com.csci360.alarmclock.Time;
 import java.awt.Color;
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -391,6 +394,8 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(OreoAlarmClockJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+      
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -398,6 +403,8 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
                 new OreoAlarmClockJFrame().setVisible(true);
             }
         });
+        
+        
         
         
     }
@@ -429,18 +436,19 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     Controller controller;
+    File alarmSound = new File("sounds/Ringing-clock.WAV");
+    
     
     private void blinkTime()
     {
         this.TimeLabel.setVisible(!this.TimeLabel.isVisible());
     }
     
-    private void blinkBackground()
+    private void soundAlarm()
     {
         if(this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected())
         {
-            this.jPanel3.setBackground(Color.magenta);
-            this.jPanel3.setVisible(!this.jPanel3.isVisible());
+            this.play(alarmSound);
         }
     }
     
@@ -458,9 +466,25 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         } else {
             this.TimeLabel.setVisible(true);
             this.TimeLabel.setText(this.controller.getTime().toString());
-            blinkBackground();
+            soundAlarm();
         }
         
+    }
+    
+    public void play(File sound)
+    {
+        try
+        {
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(sound));
+            clip.start();
+            
+            Thread.sleep(clip.getMicrosecondLength()/1000);
+        }
+        catch (Exception exc)
+        {
+            exc.printStackTrace(System.out);
+        }
     }
 
 

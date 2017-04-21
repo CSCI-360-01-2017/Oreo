@@ -175,7 +175,7 @@ public class Controller {
                 trol.checkAlarm();      
             }
         };
-        timer.schedule(task, 5000, 5000);
+        timer.schedule(task, 1000, 1000);
         
         return trol;
     }
