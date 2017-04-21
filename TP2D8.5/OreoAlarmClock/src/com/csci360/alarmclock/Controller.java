@@ -22,6 +22,7 @@ public class Controller {
     private boolean alarm1EnabledBoolean;
     private boolean alarm2EnabledBoolean;
     private boolean soundAlarm;
+    private boolean isRadioOn;
     private Clock clock;
     private Alarm alarm1;
     private Alarm alarm2;
@@ -34,6 +35,7 @@ public class Controller {
         this.alarm1EnabledBoolean = false;
         this.alarm2EnabledBoolean = false;
         this.soundAlarm = false;
+        this.isRadioOn = false;
         this.clock = new Clock();
         this.alarm1 = new Alarm();
         this.alarm2 = new Alarm();
@@ -138,6 +140,46 @@ public class Controller {
     {
         this.soundAlarm = !this.soundAlarm;
     }
+    
+    public String getVolumeString()
+    {
+        return Integer.toString(this.radio.getVolume());
+    }
+    
+    public String userGetFrequencyString()
+    {
+        return this.radio.getFrequencyString();
+    }
+    
+    public void userToggleIsFM()
+    {
+        this.radio.changeModulation();
+    }
+    
+    public void userIncremenetFrequency() 
+    {
+        this.radio.incrementFrequency();  
+    }
+    
+    public void userDecrementFrequency()
+    {
+        this.radio.decrementFrequency();
+    }
+    
+    public void userIncremenetVolume()
+    {
+        this.radio.incrementVolume();
+    }
+    
+    public void userDecrementVolume()
+    {
+        this.radio.decrementVolume();
+    }
+    
+    public void userToggleIsRadioOnBoolean()
+    {
+        this.isRadioOn = !this.isRadioOn;
+    }
         
     /**
      * Checks each alarm time. Plays the radio if the alarm has been set and 
@@ -175,7 +217,7 @@ public class Controller {
                 trol.checkAlarm();      
             }
         };
-        timer.schedule(task, 5000, 5000);
+        timer.schedule(task, 1000, 1000);
         
         return trol;
     }

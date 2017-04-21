@@ -171,7 +171,7 @@ public class Radio {
     /**
      * @return FM boolean
      */
-    public boolean getisFM() {
+    public boolean getIsFM() {
         return isFM;
     }
     
@@ -194,10 +194,16 @@ public class Radio {
         return result;
     }  
     
-    public String playFrequency() 
+    public String getFrequencyString() 
     {
-        return "Playing radio at " + this.getFrequency() + " " + this.getModString() + " frequency.";
+        String result = "";
+        if(this.getIsFM()) {
+            result = String.format("%.1f", this.getFrequency()) + " " + this.getModString();
+        } else if(!this.getIsFM()) {
+            result = String.format("%.0f", this.getFrequency()) + " " + this.getModString();
+        }
         
+        return result;
     }
     
     public void printPlayFrequency() 
