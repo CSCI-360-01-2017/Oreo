@@ -22,6 +22,7 @@ public class Controller {
     private boolean alarm1EnabledBoolean;
     private boolean alarm2EnabledBoolean;
     private boolean soundAlarm;
+    private boolean isRadioOn;
     private Clock clock;
     private Alarm alarm1;
     private Alarm alarm2;
@@ -34,6 +35,7 @@ public class Controller {
         this.alarm1EnabledBoolean = false;
         this.alarm2EnabledBoolean = false;
         this.soundAlarm = false;
+        this.isRadioOn = false;
         this.clock = new Clock();
         this.alarm1 = new Alarm();
         this.alarm2 = new Alarm();
@@ -137,6 +139,46 @@ public class Controller {
     public void setAlarmSounding()
     {
         this.soundAlarm = !this.soundAlarm;
+    }
+    
+    public String getVolumeString()
+    {
+        return Integer.toString(this.radio.getVolume());
+    }
+    
+    public String userGetFrequencyString()
+    {
+        return this.radio.getFrequencyString();
+    }
+    
+    public void userToggleIsFM()
+    {
+        this.radio.changeModulation();
+    }
+    
+    public void userIncremenetFrequency() 
+    {
+        this.radio.incrementFrequency();  
+    }
+    
+    public void userDecrementFrequency()
+    {
+        this.radio.decrementFrequency();
+    }
+    
+    public void userIncremenetVolume()
+    {
+        this.radio.incrementVolume();
+    }
+    
+    public void userDecrementVolume()
+    {
+        this.radio.decrementVolume();
+    }
+    
+    public void userToggleIsRadioOnBoolean()
+    {
+        this.isRadioOn = !this.isRadioOn;
     }
         
     /**
