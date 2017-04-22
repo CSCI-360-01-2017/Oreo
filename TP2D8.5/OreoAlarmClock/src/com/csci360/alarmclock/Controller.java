@@ -5,8 +5,11 @@
  */
 package com.csci360.alarmclock;
 
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 /**
  *
@@ -180,6 +183,104 @@ public class Controller {
     {
         this.isRadioOn = !this.isRadioOn;
     }
+    
+    File cameras = new File("sounds/Cameras.WAV");
+    
+    File mrSaxobeat = new File("sounds/Mr_Saxobeat.WAV");
+    File dearMariaCountMeIn = new File("sounds/Dear_Maria_Count_Me_In.WAV");
+    File frontierPsychiatrist = new File("sounds/Frontier_Psychiatrist.WAV");
+    File goOutside = new File("sounds/Go_Outside.WAV");
+    File ifIDieYoung = new File("sounds/If_I_Die_Young.WAV");
+    File littleGames = new File("sounds/Little_Games.WAV");
+    File titanium = new File("sounds/Titanium_feat_Sia_.WAV");
+    File vivaLaVida = new File("sounds/Viva_la_Vida.WAV");
+    
+    
+    File electricFeel = new File("sounds/Electric_Feel.WAV");
+    File iAlreadyForgotEverythingYouSaid = new File("sounds/I_Already_Forgot_Everything_You_Said.WAV");    
+    File mykonos = new File("sounds/Mykonos.WAV");
+    File peaches = new File("sounds/Peaches.WAV");
+    File pumpedUpKicks = new File("sounds/Pumped_Up_Kicks.WAV");
+    File tongueTied = new File("sounds/Tongue_Tied.WAV");
+    File sleepyhead = new File("sounds/Sleepyhead.WAV");
+    File sweaterWeather = new File("sounds/Sweater_Weather.WAV");
+
+    public void playRadio()
+    {
+        File sound = getSong(this.radio.getFrequency());
+        try
+        {
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(sound));
+            clip.start();
+            
+        }
+        catch (Exception exc)
+        {
+            exc.printStackTrace(System.out);
+        }
+    }
+    
+    public void play(File sound)
+    {
+        
+        try
+        {
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(sound));
+            clip.start();
+            
+            Thread.sleep(clip.getMicrosecondLength()/1000);
+        }
+        catch (Exception exc)
+        {
+            exc.printStackTrace(System.out);
+        }
+    }
+    
+    private File getSong(Double frequency) {
+        
+        File requestedSong = this.cameras;
+       
+        if(this.radio.getIsFM()) {
+            if(this.radio.getFrequency() == 87.7)
+                requestedSong = this.mrSaxobeat;
+            else if(this.radio.getFrequency() == 87.9)
+                requestedSong = this.dearMariaCountMeIn;
+            else if(this.radio.getFrequency() == 88.1)
+                requestedSong = this.frontierPsychiatrist;
+            else if(this.radio.getFrequency() == 88.3)
+                requestedSong = this.goOutside;
+            else if(this.radio.getFrequency() == 88.5)
+                requestedSong = this.ifIDieYoung;
+            else if(this.radio.getFrequency() == 88.7)
+                requestedSong = this.littleGames;
+            else if(this.radio.getFrequency() == 88.9)
+                requestedSong = this.titanium;
+            else if(this.radio.getFrequency() == 89.1)
+                requestedSong = this.vivaLaVida;
+                
+        } else if(!this.radio.getIsFM()) {
+            if(this.radio.getFrequency() == 520.0)
+                requestedSong = this.electricFeel;
+            else if (this.radio.getFrequency() == 521.0)
+                requestedSong = this.iAlreadyForgotEverythingYouSaid;
+            else if (this.radio.getFrequency() == 522.0)
+                requestedSong = this.mykonos;
+            else if (this.radio.getFrequency() == 523.0) 
+                requestedSong = this.peaches;
+            else if (this.radio.getFrequency() == 524.0)
+                requestedSong = this.pumpedUpKicks;
+            else if (this.radio.getFrequency() == 525.0)
+                requestedSong = this.tongueTied;
+            else if (this.radio.getFrequency() == 526.0)
+                requestedSong = this.sleepyhead;
+            else if (this.radio.getFrequency() == 527.0)
+                requestedSong = this.sweaterWeather;
+        }
+        
+        return requestedSong;
+    }
         
     /**
      * Checks each alarm time. Plays the radio if the alarm has been set and 
@@ -217,7 +318,7 @@ public class Controller {
                 trol.checkAlarm();      
             }
         };
-        timer.schedule(task, 1000, 1000);
+        timer.schedule(task, Constants.SECOND_INTERVAL, Constants.SECOND_INTERVAL);
         
         return trol;
     }

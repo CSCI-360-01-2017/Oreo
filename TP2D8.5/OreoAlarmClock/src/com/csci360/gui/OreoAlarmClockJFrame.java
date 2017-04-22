@@ -429,6 +429,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
             this.controller.userDecrementFrequency();
         }
         this.updateFrequencyLabel();
+        this.controller.playRadio();
     }//GEN-LAST:event_decrementFequencyButtonActionPerformed
 
     private void incrementFequencyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incrementFequencyButtonActionPerformed
@@ -438,6 +439,8 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
             this.controller.userIncremenetFrequency();
         }
         this.updateFrequencyLabel();
+        this.controller.playRadio();
+        
     }//GEN-LAST:event_incrementFequencyButtonActionPerformed
 
     private void FMButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FMButtonActionPerformed
@@ -470,6 +473,8 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
             this.FrequencyLabel.setVisible(true);
             this.playRadioButton.setText("Turn Off Radio");
             //this.controller.toggleAlarm2EnabledBoolean();
+            this.controller.playRadio();
+
 
         }
         else
@@ -477,6 +482,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
             this.FrequencyLabel.setVisible(false);
             this.playRadioButton.setText("Turn On Radio");
             //this.controller.toggleAlarm2EnabledBoolean();
+            //stop radio
 
         }
     }//GEN-LAST:event_playRadioButtonActionPerformed
@@ -551,24 +557,8 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
 
     Controller controller;
     File alarmSound = new File("sounds/beep-06.WAV");
-    File cameras = new File("sounds/Cameras.WAV");
-    File mrSaxobeat = new File("sounds/Mr_Saxobeat.WAV");
-    File dearMariaCountMeIn = new File("sounds/Dear_Maria_Count_Me_In.WAV");
-    File frontierPsychiatrist = new File("sounds/Frontier_Psychiatrist.WAV");
-    File goOutside = new File("sounds/Go_Outside.WAV");
-    File ifIDieYoung = new File("sounds/If_I_Die_Young.WAV");
-    File littleGames = new File("sounds/Little_Games.WAV");
-    File titanium = new File("sounds/Titanium_feat_Sia_.WAV");
-    File vivaLaVida = new File("sounds/Viva_la_Vida.WAV");
-    File electricFeel = new File("sounds/Electric_Feel.WAV");
-    File iAlreadyForgotEverythingYouSaid = new File("sounds/I_Already_Forgot_Everything_You_Said.WAV");    
-    File mykonos = new File("sounds/Mykonos.WAV");
-    File peaches = new File("sounds/Peaches.WAV");
-    File pumpedUpKicks = new File("sounds/Pumped_Up_Kicks.WAV");
-    File tongueTied = new File("sounds/Tongue_Tied.WAV");
-    File sleepyhead = new File("sounds/Sleepyhead.WAV");
-    File sweaterWeather = new File("sounds/Sweater_Weather.WAV");
 
+   
     
     private void blinkTime()
     {
@@ -579,7 +569,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     {
         if(this.controller.isAlarmSounding() && (this.Alarm1OnOffSwitch.isSelected() || this.Alarm2OnOffSwitch.isSelected()))
         {
-            this.play(alarmSound);
+            this.controller.play(alarmSound);
         }
     }
     
@@ -612,21 +602,13 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         this.FrequencyLabel.setText(this.controller.userGetFrequencyString());
     }
     
-    public void play(File sound)
-    {
-        try
-        {
-            Clip clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(sound));
-            clip.start();
-            
-            Thread.sleep(clip.getMicrosecondLength()/1000);
-        }
-        catch (Exception exc)
-        {
-            exc.printStackTrace(System.out);
-        }
+    private void updateRadio() {
+        
+        this.controller.playRadio();
     }
+            
+    
+    
 
 
 }
