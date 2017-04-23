@@ -24,6 +24,7 @@ public class Controller {
     private boolean alarm2ToggleBoolean;
     private boolean alarm1EnabledBoolean;
     private boolean alarm2EnabledBoolean;
+    private boolean soundAlarm;
     private boolean soundAlarm1;
     private boolean soundAlarm2;
     private boolean isRadioOn;
@@ -151,6 +152,22 @@ public class Controller {
         this.soundAlarm2 = !this.soundAlarm2;
     }
     
+    public void setAlarmSounding()
+    {
+        this.soundAlarm = !this.soundAlarm;
+    }
+    
+    public void alarm1Snooze()
+    {
+        this.alarm1.snooze();
+        
+    }
+    
+    public void alarm2Snooze()
+    {
+        this.alarm2.snooze();
+    }
+    
     public String getVolumeString()
     {
         return Integer.toString(this.radio.getVolume());
@@ -242,6 +259,23 @@ public class Controller {
             exc.printStackTrace(System.out);
         }
     }
+    
+     public void play(File sound)
+    {
+        
+        try
+        {
+            Clip alarm = AudioSystem.getClip();
+            alarm.open(AudioSystem.getAudioInputStream(sound));
+            alarm.start();
+            
+            Thread.sleep(alarm.getMicrosecondLength()/1000);
+        }
+        catch (Exception exc)
+        {
+            exc.printStackTrace(System.out);
+        }
+    }  
     
     public void stopRadio()
     {
@@ -350,8 +384,9 @@ public class Controller {
                 trol.checkAlarm();      
             }
         };
+
         timer.schedule(task, Constants.SECOND_INTERVAL, Constants.SECOND_INTERVAL);
-        
+
         return trol;
     }
 

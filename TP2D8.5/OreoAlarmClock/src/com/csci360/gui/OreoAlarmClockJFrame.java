@@ -375,17 +375,30 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void myInitComponents()
-    {
-        
-    }
+    
     
     // Clock tab
     
     private void SnoozeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnoozeButtonActionPerformed
         // TODO add your handling code here:
+
         this.controller.userSnooze();
         this.controller.stopAlarmSound();
+
+        /*if((this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected()))
+        {
+            this.controller.alarm1Snooze();
+            this.controller.setAlarmSounding();
+           
+        }
+        
+         if((this.controller.isAlarmSounding() && this.Alarm2OnOffSwitch.isSelected()))
+        {
+            this.controller.alarm2Snooze();
+            this.controller.setAlarmSounding();
+           
+        }*/
+        
     }//GEN-LAST:event_SnoozeButtonActionPerformed
 
     private void HourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HourButtonActionPerformed
@@ -611,10 +624,28 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     // refactor
     private void soundAlarm()
     {
-        if(this.controller.isAlarmSounding() && (this.Alarm1OnOffSwitch.isSelected() || this.Alarm2OnOffSwitch.isSelected()))
+        if((this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected()))
         {
+
             this.controller.startAlarmSound(alarmSound);
+
+           // this.play(alarmSound);
+            //if (!this.Alarm1OnOffSwitch.isSelected() && this.controller.isAlarmSounding())
+           // {
+            //    this.controller.setAlarmSounding();
+           // }
+
         }
+        
+        if((this.controller.isAlarmSounding() && this.Alarm2OnOffSwitch.isSelected()))
+        {
+            this.controller.play(alarmSound);
+            if (!this.Alarm2OnOffSwitch.isSelected() && this.controller.isAlarmSounding())
+            {
+                this.controller.setAlarmSounding();
+            }
+        }
+       
     }
     
    

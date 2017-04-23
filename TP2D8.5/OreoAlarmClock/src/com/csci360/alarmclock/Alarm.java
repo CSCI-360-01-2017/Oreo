@@ -110,15 +110,11 @@ public class Alarm {
     */
     public void snooze()
     {
-        if(this.isAlarming())  // probably don't need to check if set
-        {
+         
             this.isSet = false;
             alarmTime.setMinute(alarmTime.getMinute() + 9);
             this.isSet = true;
-        }
-        else {
-            // do nothing
-        }
+       
         
     }
 }
