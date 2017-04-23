@@ -141,6 +141,17 @@ public class Controller {
         this.soundAlarm = !this.soundAlarm;
     }
     
+    public void alarm1Snooze()
+    {
+        this.alarm1.snooze();
+        
+    }
+    
+    public void alarm2Snooze()
+    {
+        this.alarm2.snooze();
+    }
+    
     public String getVolumeString()
     {
         return Integer.toString(this.radio.getVolume());
@@ -217,7 +228,7 @@ public class Controller {
                 trol.checkAlarm();      
             }
         };
-        timer.schedule(task, 1000, 1000);
+        timer.schedule(task, 1000, 2000);
         
         return trol;
     }
