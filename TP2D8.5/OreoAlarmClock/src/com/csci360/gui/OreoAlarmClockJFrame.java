@@ -30,6 +30,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         initComponents();
         Timer timer = new Timer();
         this.controller = Controller.start();
+       // this.FMButton.select
         
         TimerTask task = new TimerTask()
         {
@@ -426,6 +427,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.playRadioButton.isSelected())
         {
+            this.controller.stopRadio();
             this.controller.userDecrementFrequency();
         }
         this.updateFrequencyLabel();
@@ -436,6 +438,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.playRadioButton.isSelected())
         {
+            this.controller.stopRadio();
             this.controller.userIncremenetFrequency();
         }
         this.updateFrequencyLabel();
@@ -472,17 +475,14 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         {
             this.FrequencyLabel.setVisible(true);
             this.playRadioButton.setText("Turn Off Radio");
-            //this.controller.toggleAlarm2EnabledBoolean();
             this.controller.playRadio();
-
 
         }
         else
         {
             this.FrequencyLabel.setVisible(false);
             this.playRadioButton.setText("Turn On Radio");
-            //this.controller.toggleAlarm2EnabledBoolean();
-            //stop radio
+            this.controller.stopRadio();
 
         }
     }//GEN-LAST:event_playRadioButtonActionPerformed

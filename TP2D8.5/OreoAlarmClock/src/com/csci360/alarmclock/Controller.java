@@ -184,35 +184,38 @@ public class Controller {
         this.isRadioOn = !this.isRadioOn;
     }
     
-    File cameras = new File("sounds/Cameras.WAV");
+    private File cameras = new File("sounds/Cameras.WAV");
     
-    File mrSaxobeat = new File("sounds/Mr_Saxobeat.WAV");
-    File dearMariaCountMeIn = new File("sounds/Dear_Maria_Count_Me_In.WAV");
-    File frontierPsychiatrist = new File("sounds/Frontier_Psychiatrist.WAV");
-    File goOutside = new File("sounds/Go_Outside.WAV");
-    File ifIDieYoung = new File("sounds/If_I_Die_Young.WAV");
-    File littleGames = new File("sounds/Little_Games.WAV");
-    File titanium = new File("sounds/Titanium_feat_Sia_.WAV");
-    File vivaLaVida = new File("sounds/Viva_la_Vida.WAV");
+    private File mrSaxobeat = new File("sounds/Mr_Saxobeat.WAV");
+    private File dearMariaCountMeIn = new File("sounds/Dear_Maria_Count_Me_In.WAV");
+    private File frontierPsychiatrist = new File("sounds/Frontier_Psychiatrist.WAV");
+    private File goOutside = new File("sounds/Go_Outside.WAV");
+    private File ifIDieYoung = new File("sounds/If_I_Die_Young.WAV");
+    private File littleGames = new File("sounds/Little_Games.WAV");
+    private File titanium = new File("sounds/Titanium_feat_Sia_.WAV");
+    private File vivaLaVida = new File("sounds/Viva_la_Vida.WAV");
     
     
-    File electricFeel = new File("sounds/Electric_Feel.WAV");
-    File iAlreadyForgotEverythingYouSaid = new File("sounds/I_Already_Forgot_Everything_You_Said.WAV");    
-    File mykonos = new File("sounds/Mykonos.WAV");
-    File peaches = new File("sounds/Peaches.WAV");
-    File pumpedUpKicks = new File("sounds/Pumped_Up_Kicks.WAV");
-    File tongueTied = new File("sounds/Tongue_Tied.WAV");
-    File sleepyhead = new File("sounds/Sleepyhead.WAV");
-    File sweaterWeather = new File("sounds/Sweater_Weather.WAV");
+    private File electricFeel = new File("sounds/Electric_Feel.WAV");
+    private File iAlreadyForgotEverythingYouSaid = new File("sounds/I_Already_Forgot_Everything_You_Said.WAV");    
+    private File mykonos = new File("sounds/Mykonos.WAV");
+    private File peaches = new File("sounds/Peaches.WAV");
+    private File pumpedUpKicks = new File("sounds/Pumped_Up_Kicks.WAV");
+    private File tongueTied = new File("sounds/Tongue_Tied.WAV");
+    private File sleepyhead = new File("sounds/Sleepyhead.WAV");
+    private File sweaterWeather = new File("sounds/Sweater_Weather.WAV");
+    
+    private Clip clip;
 
     public void playRadio()
     {
         File sound = getSong(this.radio.getFrequency());
         try
         {
-            Clip clip = AudioSystem.getClip();
+            clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(sound));
             clip.start();
+            
             
         }
         catch (Exception exc)
@@ -221,16 +224,21 @@ public class Controller {
         }
     }
     
+    public void stopRadio()
+    {
+        clip.stop();
+    }
+    
     public void play(File sound)
     {
         
         try
         {
-            Clip clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(sound));
-            clip.start();
+            Clip alarm = AudioSystem.getClip();
+            alarm.open(AudioSystem.getAudioInputStream(sound));
+            alarm.start();
             
-            Thread.sleep(clip.getMicrosecondLength()/1000);
+            Thread.sleep(alarm.getMicrosecondLength()/1000);
         }
         catch (Exception exc)
         {
