@@ -24,7 +24,8 @@ public class Controller {
     private boolean alarm2ToggleBoolean;
     private boolean alarm1EnabledBoolean;
     private boolean alarm2EnabledBoolean;
-    private boolean soundAlarm;
+    private boolean soundAlarm1;
+    private boolean soundAlarm2;
     private boolean isRadioOn;
     private Clock clock;
     private Alarm alarm1;
@@ -37,7 +38,8 @@ public class Controller {
         this.alarm2ToggleBoolean = false;
         this.alarm1EnabledBoolean = false;
         this.alarm2EnabledBoolean = false;
-        this.soundAlarm = false;
+        this.soundAlarm1 = false;
+        this.soundAlarm2 = false;
         this.isRadioOn = false;
         this.clock = new Clock();
         this.alarm1 = new Alarm();
@@ -136,12 +138,17 @@ public class Controller {
     
     public boolean isAlarmSounding()
     {
-        return this.soundAlarm;
+        return this.soundAlarm1 || this.soundAlarm2;
     }
     
-    public void setAlarmSounding()
+    public void setAlarmSounding1()
     {
-        this.soundAlarm = !this.soundAlarm;
+        this.soundAlarm1 = !this.soundAlarm1;
+    }
+    
+    public void setAlarmSounding2()
+    {
+        this.soundAlarm2 = !this.soundAlarm2;
     }
     
     public String getVolumeString()
@@ -184,6 +191,17 @@ public class Controller {
         this.isRadioOn = !this.isRadioOn;
     }
     
+    public void userSnooze()
+    {
+        if(this.soundAlarm1) {
+            this.alarm1.snooze();
+        } else if(this.soundAlarm2) {
+            this.alarm2.snooze();
+        }
+    }
+    
+    
+    
     private File cameras = new File("sounds/Cameras.WAV");
     
     private File mrSaxobeat = new File("sounds/Mr_Saxobeat.WAV");
@@ -206,6 +224,7 @@ public class Controller {
     private File sweaterWeather = new File("sounds/Sweater_Weather.WAV");
     
     private Clip clip;
+    private Clip alarm;
 
     public void playRadio()
     {
@@ -229,12 +248,12 @@ public class Controller {
         clip.stop();
     }
     
-    public void play(File sound)
+    public void startAlarmSound(File sound)
     {
         
         try
         {
-            Clip alarm = AudioSystem.getClip();
+            alarm = AudioSystem.getClip();
             alarm.open(AudioSystem.getAudioInputStream(sound));
             alarm.start();
             
@@ -244,6 +263,11 @@ public class Controller {
         {
             exc.printStackTrace(System.out);
         }
+    }
+    
+    public void stopAlarmSound()
+    {
+        alarm.stop();
     }
     
     private File getSong(Double frequency) {
@@ -300,13 +324,13 @@ public class Controller {
         if(getAlarm1EnabledBoolean() && 
           alarm1.getAlarmTime().toString().equals(clock.getClockTime().toString()))
         {
-            this.setAlarmSounding();        
+            this.setAlarmSounding1();        
         }
         
         else if(getAlarm2EnabledBoolean() && 
                 alarm2.getAlarmTime().toString().equals(clock.getClockTime().toString()))
         {
-            this.setAlarmSounding();
+            this.setAlarmSounding1();
         }
         
         else {
