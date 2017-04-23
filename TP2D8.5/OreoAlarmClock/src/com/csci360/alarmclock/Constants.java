@@ -17,6 +17,7 @@ public class Constants {
     public static final String PM_MERIDIEN = "PM";
     
     public static final int MINUTE_INTERVAL = 15000; // time of each minute in milliseconds
+    public static final int SECOND_INTERVAL = 1000;
 
     
     // Radio Constants

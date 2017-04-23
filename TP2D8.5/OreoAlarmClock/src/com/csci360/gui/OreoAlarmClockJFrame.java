@@ -30,6 +30,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         initComponents();
         Timer timer = new Timer();
         this.controller = Controller.start();
+        this.FMButton.setSelected(true);
         
         TimerTask task = new TimerTask()
         {
@@ -54,27 +55,38 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         FMAMButtonGroup = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         ClockPanel = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        topPanelBuffer = new javax.swing.JPanel();
+        ClockControlPanel = new javax.swing.JPanel();
+        TimeToggleButton = new javax.swing.JToggleButton();
         HourButton = new javax.swing.JButton();
         MinuteButton = new javax.swing.JButton();
         SnoozeButton = new javax.swing.JButton();
-        TimeToggleButton = new javax.swing.JToggleButton();
+        AlarmSetPanel = new javax.swing.JPanel();
         Alarm1ToggleButton = new javax.swing.JToggleButton();
         Alarm2ToggleButton = new javax.swing.JToggleButton();
-        TimeLabel = new javax.swing.JLabel();
+        AlarmTogglePanel = new javax.swing.JPanel();
         Alarm1OnOffSwitch = new javax.swing.JToggleButton();
+        AlarmToggleSpacerPanel = new javax.swing.JPanel();
         Alarm2OnOffSwitch = new javax.swing.JToggleButton();
+        TimeLabel = new javax.swing.JLabel();
+        bottomPanelBuffer = new javax.swing.JPanel();
         RadioPanel = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        radioButtonPanel = new javax.swing.JPanel();
+        playRadioButton = new javax.swing.JToggleButton();
+        frequencyPanel = new javax.swing.JPanel();
+        decrementFequencyButton = new javax.swing.JButton();
         FrequencyLabel = new javax.swing.JLabel();
+        incrementFequencyButton = new javax.swing.JButton();
+        volumePanel = new javax.swing.JPanel();
+        DecrementVolumeButton = new javax.swing.JButton();
+        VOLUME_LABEL = new javax.swing.JLabel();
+        volumeLabel = new javax.swing.JLabel();
+        IncrementVolumeButton = new javax.swing.JButton();
+        FMAMPanel = new javax.swing.JPanel();
         FMButton = new javax.swing.JRadioButton();
         AMButton = new javax.swing.JRadioButton();
-        IncrementVolumeButton = new javax.swing.JButton();
-        VOLUME_LABEL = new javax.swing.JLabel();
-        DecrementVolumeButton = new javax.swing.JButton();
-        volumeLabel = new javax.swing.JLabel();
-        incrementFequencyButton = new javax.swing.JButton();
-        decrementFequencyButton = new javax.swing.JButton();
-        playRadioButton = new javax.swing.JToggleButton();
+        jPanel3 = new javax.swing.JPanel();
 
         FMAMButtonGroup.add(AMButton);
         FMAMButtonGroup.add(FMButton);
@@ -83,255 +95,265 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
 
         jTabbedPane1.setBorder(new javax.swing.border.MatteBorder(null));
 
+        ClockPanel.setLayout(new java.awt.GridLayout(6, 1));
+
+        javax.swing.GroupLayout topPanelBufferLayout = new javax.swing.GroupLayout(topPanelBuffer);
+        topPanelBuffer.setLayout(topPanelBufferLayout);
+        topPanelBufferLayout.setHorizontalGroup(
+            topPanelBufferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 639, Short.MAX_VALUE)
+        );
+        topPanelBufferLayout.setVerticalGroup(
+            topPanelBufferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 65, Short.MAX_VALUE)
+        );
+
+        ClockPanel.add(topPanelBuffer);
+
+        ClockControlPanel.setLayout(new java.awt.GridLayout());
+
+        TimeToggleButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        TimeToggleButton.setText("Set Time");
+        TimeToggleButton.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        TimeToggleButton.setPreferredSize(new java.awt.Dimension(50, 20));
+        TimeToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TimeToggleButtonActionPerformed(evt);
+            }
+        });
+        ClockControlPanel.add(TimeToggleButton);
+
+        HourButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         HourButton.setText("Hour");
         HourButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HourButtonActionPerformed(evt);
             }
         });
+        ClockControlPanel.add(HourButton);
 
+        MinuteButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         MinuteButton.setText("Minute");
         MinuteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MinuteButtonActionPerformed(evt);
             }
         });
+        ClockControlPanel.add(MinuteButton);
 
+        SnoozeButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         SnoozeButton.setText("Snooze");
         SnoozeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SnoozeButtonActionPerformed(evt);
             }
         });
+        ClockControlPanel.add(SnoozeButton);
 
-        TimeToggleButton.setText("Set Time");
-        TimeToggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TimeToggleButtonActionPerformed(evt);
-            }
-        });
+        ClockPanel.add(ClockControlPanel);
 
+        AlarmSetPanel.setLayout(new java.awt.GridLayout());
+
+        Alarm1ToggleButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         Alarm1ToggleButton.setText("Set Alarm 1");
         Alarm1ToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Alarm1ToggleButtonActionPerformed(evt);
             }
         });
+        AlarmSetPanel.add(Alarm1ToggleButton);
 
+        Alarm2ToggleButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         Alarm2ToggleButton.setText("Set Alarm 2");
         Alarm2ToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Alarm2ToggleButtonActionPerformed(evt);
             }
         });
+        AlarmSetPanel.add(Alarm2ToggleButton);
 
-        TimeLabel.setFont(new java.awt.Font("Lucida Sans", 0, 48)); // NOI18N
-        TimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TimeLabel.setText("12:00 AM");
-        TimeLabel.setToolTipText("");
+        ClockPanel.add(AlarmSetPanel);
 
+        AlarmTogglePanel.setLayout(new java.awt.GridLayout());
+
+        Alarm1OnOffSwitch.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         Alarm1OnOffSwitch.setText("Alarm 1 Off");
         Alarm1OnOffSwitch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Alarm1OnOffSwitchActionPerformed(evt);
             }
         });
+        AlarmTogglePanel.add(Alarm1OnOffSwitch);
 
+        javax.swing.GroupLayout AlarmToggleSpacerPanelLayout = new javax.swing.GroupLayout(AlarmToggleSpacerPanel);
+        AlarmToggleSpacerPanel.setLayout(AlarmToggleSpacerPanelLayout);
+        AlarmToggleSpacerPanelLayout.setHorizontalGroup(
+            AlarmToggleSpacerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 213, Short.MAX_VALUE)
+        );
+        AlarmToggleSpacerPanelLayout.setVerticalGroup(
+            AlarmToggleSpacerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 65, Short.MAX_VALUE)
+        );
+
+        AlarmTogglePanel.add(AlarmToggleSpacerPanel);
+
+        Alarm2OnOffSwitch.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         Alarm2OnOffSwitch.setText("Alarm 2 Off");
         Alarm2OnOffSwitch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Alarm2OnOffSwitchActionPerformed(evt);
             }
         });
+        AlarmTogglePanel.add(Alarm2OnOffSwitch);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(Alarm1OnOffSwitch)
-                        .addGap(138, 138, 138)
-                        .addComponent(Alarm2OnOffSwitch))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(45, 45, 45)
-                            .addComponent(TimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(Alarm1ToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Alarm2ToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(TimeToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(HourButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(12, 12, 12)
-                            .addComponent(MinuteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(SnoozeButton))))
-                .addContainerGap(111, Short.MAX_VALUE))
+        ClockPanel.add(AlarmTogglePanel);
+
+        TimeLabel.setFont(new java.awt.Font("Lucida Sans", 0, 48)); // NOI18N
+        TimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TimeLabel.setText("12:00 AM");
+        TimeLabel.setToolTipText("");
+        ClockPanel.add(TimeLabel);
+
+        javax.swing.GroupLayout bottomPanelBufferLayout = new javax.swing.GroupLayout(bottomPanelBuffer);
+        bottomPanelBuffer.setLayout(bottomPanelBufferLayout);
+        bottomPanelBufferLayout.setHorizontalGroup(
+            bottomPanelBufferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 639, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HourButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TimeToggleButton)
-                    .addComponent(MinuteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SnoozeButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Alarm1ToggleButton)
-                    .addComponent(Alarm2ToggleButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Alarm1OnOffSwitch)
-                    .addComponent(Alarm2OnOffSwitch))
-                .addGap(33, 33, 33)
-                .addComponent(TimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+        bottomPanelBufferLayout.setVerticalGroup(
+            bottomPanelBufferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 65, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout ClockPanelLayout = new javax.swing.GroupLayout(ClockPanel);
-        ClockPanel.setLayout(ClockPanelLayout);
-        ClockPanelLayout.setHorizontalGroup(
-            ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ClockPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        ClockPanelLayout.setVerticalGroup(
-            ClockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        ClockPanel.add(bottomPanelBuffer);
 
         jTabbedPane1.addTab("Clock", ClockPanel);
 
-        FrequencyLabel.setFont(new java.awt.Font("Lucida Sans", 0, 48)); // NOI18N
-        FrequencyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        FrequencyLabel.setText("87.5 FM");
-        FrequencyLabel.setToolTipText("");
+        RadioPanel.setLayout(new java.awt.GridLayout(6, 1));
 
-        FMButton.setText("FM");
-        FMButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FMButtonActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 639, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 65, Short.MAX_VALUE)
+        );
 
-        AMButton.setText("AM");
-        AMButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AMButtonActionPerformed(evt);
-            }
-        });
+        RadioPanel.add(jPanel2);
 
-        IncrementVolumeButton.setText(">");
-        IncrementVolumeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IncrementVolumeButtonActionPerformed(evt);
-            }
-        });
+        radioButtonPanel.setLayout(new java.awt.GridLayout());
 
-        VOLUME_LABEL.setText("Volume: ");
-
-        DecrementVolumeButton.setText("<");
-        DecrementVolumeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DecrementVolumeButtonActionPerformed(evt);
-            }
-        });
-
-        volumeLabel.setText("5");
-
-        incrementFequencyButton.setText(">");
-        incrementFequencyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                incrementFequencyButtonActionPerformed(evt);
-            }
-        });
-
-        decrementFequencyButton.setText("<");
-        decrementFequencyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                decrementFequencyButtonActionPerformed(evt);
-            }
-        });
-
+        playRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         playRadioButton.setText("Turn On Radio");
         playRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playRadioButtonActionPerformed(evt);
             }
         });
+        radioButtonPanel.add(playRadioButton);
 
-        javax.swing.GroupLayout RadioPanelLayout = new javax.swing.GroupLayout(RadioPanel);
-        RadioPanel.setLayout(RadioPanelLayout);
-        RadioPanelLayout.setHorizontalGroup(
-            RadioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RadioPanelLayout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(playRadioButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RadioPanelLayout.createSequentialGroup()
-                .addGroup(RadioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(RadioPanelLayout.createSequentialGroup()
-                        .addContainerGap(50, Short.MAX_VALUE)
-                        .addComponent(decrementFequencyButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FrequencyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(RadioPanelLayout.createSequentialGroup()
-                        .addContainerGap(181, Short.MAX_VALUE)
-                        .addGroup(RadioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RadioPanelLayout.createSequentialGroup()
-                                .addComponent(FMButton)
-                                .addGap(61, 61, 61))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RadioPanelLayout.createSequentialGroup()
-                                .addComponent(DecrementVolumeButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(VOLUME_LABEL)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(RadioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AMButton)
-                            .addGroup(RadioPanelLayout.createSequentialGroup()
-                                .addComponent(volumeLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(IncrementVolumeButton)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(incrementFequencyButton)
-                .addGap(72, 72, 72))
+        RadioPanel.add(radioButtonPanel);
+
+        frequencyPanel.setLayout(new java.awt.GridLayout());
+
+        decrementFequencyButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        decrementFequencyButton.setText("<");
+        decrementFequencyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                decrementFequencyButtonActionPerformed(evt);
+            }
+        });
+        frequencyPanel.add(decrementFequencyButton);
+
+        FrequencyLabel.setFont(new java.awt.Font("Lucida Sans", 0, 48)); // NOI18N
+        FrequencyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        FrequencyLabel.setText("87.5 FM");
+        FrequencyLabel.setToolTipText("");
+        frequencyPanel.add(FrequencyLabel);
+
+        incrementFequencyButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        incrementFequencyButton.setText(">");
+        incrementFequencyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                incrementFequencyButtonActionPerformed(evt);
+            }
+        });
+        frequencyPanel.add(incrementFequencyButton);
+
+        RadioPanel.add(frequencyPanel);
+
+        volumePanel.setLayout(new java.awt.GridLayout());
+
+        DecrementVolumeButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        DecrementVolumeButton.setText("<");
+        DecrementVolumeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DecrementVolumeButtonActionPerformed(evt);
+            }
+        });
+        volumePanel.add(DecrementVolumeButton);
+
+        VOLUME_LABEL.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        VOLUME_LABEL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        VOLUME_LABEL.setText("Volume: ");
+        volumePanel.add(VOLUME_LABEL);
+
+        volumeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        volumeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        volumeLabel.setText("5");
+        volumePanel.add(volumeLabel);
+
+        IncrementVolumeButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        IncrementVolumeButton.setText(">");
+        IncrementVolumeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IncrementVolumeButtonActionPerformed(evt);
+            }
+        });
+        volumePanel.add(IncrementVolumeButton);
+
+        RadioPanel.add(volumePanel);
+
+        FMAMPanel.setLayout(new java.awt.GridLayout());
+
+        FMButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        FMButton.setText("FM");
+        FMButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        FMButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FMButtonActionPerformed(evt);
+            }
+        });
+        FMAMPanel.add(FMButton);
+
+        AMButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        AMButton.setText("AM");
+        AMButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        AMButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AMButtonActionPerformed(evt);
+            }
+        });
+        FMAMPanel.add(AMButton);
+
+        RadioPanel.add(FMAMPanel);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 639, Short.MAX_VALUE)
         );
-        RadioPanelLayout.setVerticalGroup(
-            RadioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RadioPanelLayout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
-                .addComponent(playRadioButton)
-                .addGroup(RadioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RadioPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(FrequencyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(RadioPanelLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(incrementFequencyButton))
-                    .addGroup(RadioPanelLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(decrementFequencyButton)))
-                .addGap(18, 18, 18)
-                .addGroup(RadioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AMButton)
-                    .addComponent(FMButton))
-                .addGap(39, 39, 39)
-                .addGroup(RadioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(VOLUME_LABEL)
-                    .addComponent(volumeLabel)
-                    .addComponent(DecrementVolumeButton)
-                    .addComponent(IncrementVolumeButton))
-                .addGap(65, 65, 65))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 65, Short.MAX_VALUE)
         );
+
+        RadioPanel.add(jPanel3);
 
         jTabbedPane1.addTab("Radio", RadioPanel);
 
@@ -354,11 +376,16 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
+    
     // Clock tab
     
     private void SnoozeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnoozeButtonActionPerformed
         // TODO add your handling code here:
-        if((this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected()))
+
+        this.controller.userSnooze();
+        this.controller.stopAlarmSound();
+
+        /*if((this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected()))
         {
             this.controller.alarm1Snooze();
             this.controller.setAlarmSounding();
@@ -370,7 +397,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
             this.controller.alarm2Snooze();
             this.controller.setAlarmSounding();
            
-        }
+        }*/
         
     }//GEN-LAST:event_SnoozeButtonActionPerformed
 
@@ -440,28 +467,37 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.playRadioButton.isSelected())
         {
+            this.controller.stopRadio();
             this.controller.userDecrementFrequency();
         }
         this.updateFrequencyLabel();
+        this.controller.playRadio();
     }//GEN-LAST:event_decrementFequencyButtonActionPerformed
 
     private void incrementFequencyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incrementFequencyButtonActionPerformed
         // TODO add your handling code here:
         if(this.playRadioButton.isSelected())
         {
+            this.controller.stopRadio();
             this.controller.userIncremenetFrequency();
         }
         this.updateFrequencyLabel();
+        this.controller.playRadio();
+        
     }//GEN-LAST:event_incrementFequencyButtonActionPerformed
 
     private void FMButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FMButtonActionPerformed
-        // TODO add your handling code here:  
+        // TODO add your handling code here: 
+        this.controller.userToggleIsFM();
         this.updateFrequencyLabel();
+        this.controller.updateRadio();
     }//GEN-LAST:event_FMButtonActionPerformed
 
     private void AMButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMButtonActionPerformed
         // TODO add your handling code here:
+        this.controller.userToggleIsFM();
         this.updateFrequencyLabel();
+        this.controller.updateRadio();
     }//GEN-LAST:event_AMButtonActionPerformed
 
     private void DecrementVolumeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DecrementVolumeButtonActionPerformed
@@ -483,14 +519,14 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         {
             this.FrequencyLabel.setVisible(true);
             this.playRadioButton.setText("Turn Off Radio");
-            //this.controller.toggleAlarm2EnabledBoolean();
+            this.controller.playRadio();
 
         }
         else
         {
             this.FrequencyLabel.setVisible(false);
             this.playRadioButton.setText("Turn On Radio");
-            //this.controller.toggleAlarm2EnabledBoolean();
+            this.controller.stopRadio();
 
         }
     }//GEN-LAST:event_playRadioButtonActionPerformed
@@ -542,9 +578,14 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton Alarm1ToggleButton;
     private javax.swing.JToggleButton Alarm2OnOffSwitch;
     private javax.swing.JToggleButton Alarm2ToggleButton;
+    private javax.swing.JPanel AlarmSetPanel;
+    private javax.swing.JPanel AlarmTogglePanel;
+    private javax.swing.JPanel AlarmToggleSpacerPanel;
+    private javax.swing.JPanel ClockControlPanel;
     private javax.swing.JPanel ClockPanel;
     private javax.swing.JButton DecrementVolumeButton;
     private javax.swing.ButtonGroup FMAMButtonGroup;
+    private javax.swing.JPanel FMAMPanel;
     private javax.swing.JRadioButton FMButton;
     private javax.swing.JLabel FrequencyLabel;
     private javax.swing.JButton HourButton;
@@ -555,54 +596,50 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel TimeLabel;
     private javax.swing.JToggleButton TimeToggleButton;
     private javax.swing.JLabel VOLUME_LABEL;
+    private javax.swing.JPanel bottomPanelBuffer;
     private javax.swing.JButton decrementFequencyButton;
+    private javax.swing.JPanel frequencyPanel;
     private javax.swing.JButton incrementFequencyButton;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToggleButton playRadioButton;
+    private javax.swing.JPanel radioButtonPanel;
+    private javax.swing.JPanel topPanelBuffer;
     private javax.swing.JLabel volumeLabel;
+    private javax.swing.JPanel volumePanel;
     // End of variables declaration//GEN-END:variables
 
     Controller controller;
     File alarmSound = new File("sounds/beep-06.WAV");
-    File cameras = new File("sounds/Cameras.WAV");
-    File mrSaxobeat = new File("sounds/Mr_Saxobeat.WAV");
-    File dearMariaCountMeIn = new File("sounds/Dear_Maria_Count_Me_In.WAV");
-    File frontierPsychiatrist = new File("sounds/Frontier_Psychiatrist.WAV");
-    File goOutside = new File("sounds/Go_Outside.WAV");
-    File ifIDieYoung = new File("sounds/If_I_Die_Young.WAV");
-    File littleGames = new File("sounds/Little_Games.WAV");
-    File titanium = new File("sounds/Titanium_feat_Sia_.WAV");
-    File vivaLaVida = new File("sounds/Viva_la_Vida.WAV");
-    File electricFeel = new File("sounds/Electric_Feel.WAV");
-    File iAlreadyForgotEverythingYouSaid = new File("sounds/I_Already_Forgot_Everything_You_Said.WAV");    
-    File mykonos = new File("sounds/Mykonos.WAV");
-    File peaches = new File("sounds/Peaches.WAV");
-    File pumpedUpKicks = new File("sounds/Pumped_Up_Kicks.WAV");
-    File tongueTied = new File("sounds/Tongue_Tied.WAV");
-    File sleepyhead = new File("sounds/Sleepyhead.WAV");
-    File sweaterWeather = new File("sounds/Sweater_Weather.WAV");
 
+   
     
     private void blinkTime()
     {
         this.TimeLabel.setVisible(!this.TimeLabel.isVisible());
     }
     
+    
+    // refactor
     private void soundAlarm()
     {
         if((this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected()))
         {
-            this.play(alarmSound);
-            if (!this.Alarm1OnOffSwitch.isSelected() && this.controller.isAlarmSounding())
-            {
-                this.controller.setAlarmSounding();
-            }
+
+            this.controller.startAlarmSound(alarmSound);
+
+           // this.play(alarmSound);
+            //if (!this.Alarm1OnOffSwitch.isSelected() && this.controller.isAlarmSounding())
+           // {
+            //    this.controller.setAlarmSounding();
+           // }
+
         }
         
         if((this.controller.isAlarmSounding() && this.Alarm2OnOffSwitch.isSelected()))
         {
-            this.play(alarmSound);
+            this.controller.play(alarmSound);
             if (!this.Alarm2OnOffSwitch.isSelected() && this.controller.isAlarmSounding())
             {
                 this.controller.setAlarmSounding();
@@ -610,6 +647,8 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         }
        
     }
+    
+   
     
     private void updateTimeLabel() {
         
@@ -640,21 +679,5 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         this.FrequencyLabel.setText(this.controller.userGetFrequencyString());
     }
     
-    public void play(File sound)
-    {
-        try
-        {
-            Clip clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(sound));
-            clip.start();
-            
-            Thread.sleep(clip.getMicrosecondLength()/1000);
-        }
-        catch (Exception exc)
-        {
-            exc.printStackTrace(System.out);
-        }
-    }
-
 
 }
