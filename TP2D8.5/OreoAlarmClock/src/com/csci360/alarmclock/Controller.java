@@ -251,21 +251,21 @@ public class Controller {
         File requestedSong = this.cameras;
        
         if(this.radio.getIsFM()) {
-            if(this.radio.getFrequency() == 87.7)
-                requestedSong = this.mrSaxobeat;
-            else if(this.radio.getFrequency() == 87.9)
-                requestedSong = this.dearMariaCountMeIn;
-            else if(this.radio.getFrequency() == 88.1)
-                requestedSong = this.frontierPsychiatrist;
-            else if(this.radio.getFrequency() == 88.3)
-                requestedSong = this.goOutside;
-            else if(this.radio.getFrequency() == 88.5)
-                requestedSong = this.ifIDieYoung;
-            else if(this.radio.getFrequency() == 88.7)
+            if(this.radio.getFrequency() == 87.5)
                 requestedSong = this.littleGames;
-            else if(this.radio.getFrequency() == 88.9)
+            else if(this.radio.getFrequency() == 87.7)
+                requestedSong = this.dearMariaCountMeIn;
+            else if(this.radio.getFrequency() == 87.9)
+                requestedSong = this.frontierPsychiatrist;
+            else if(this.radio.getFrequency() == 88.1)
+                requestedSong = this.goOutside;
+            else if(this.radio.getFrequency() == 88.3)
+                requestedSong = this.ifIDieYoung;
+            else if(this.radio.getFrequency() == 88.5)
+                requestedSong = this.mrSaxobeat;
+            else if(this.radio.getFrequency() == 88.7)
                 requestedSong = this.titanium;
-            else if(this.radio.getFrequency() == 89.1)
+            else if(this.radio.getFrequency() == 88.9)
                 requestedSong = this.vivaLaVida;
                 
         } else if(!this.radio.getIsFM()) {
@@ -329,6 +329,11 @@ public class Controller {
         timer.schedule(task, Constants.SECOND_INTERVAL, Constants.SECOND_INTERVAL);
         
         return trol;
+    }
+
+    public void updateRadio() {
+        stopRadio();
+        playRadio();
     }
     
 }

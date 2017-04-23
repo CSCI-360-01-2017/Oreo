@@ -30,7 +30,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         initComponents();
         Timer timer = new Timer();
         this.controller = Controller.start();
-       // this.FMButton.select
+        this.FMButton.setSelected(true);
         
         TimerTask task = new TimerTask()
         {
@@ -447,13 +447,17 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_incrementFequencyButtonActionPerformed
 
     private void FMButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FMButtonActionPerformed
-        // TODO add your handling code here:  
+        // TODO add your handling code here: 
+        this.controller.userToggleIsFM();
         this.updateFrequencyLabel();
+        this.controller.updateRadio();
     }//GEN-LAST:event_FMButtonActionPerformed
 
     private void AMButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMButtonActionPerformed
         // TODO add your handling code here:
+        this.controller.userToggleIsFM();
         this.updateFrequencyLabel();
+        this.controller.updateRadio();
     }//GEN-LAST:event_AMButtonActionPerformed
 
     private void DecrementVolumeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DecrementVolumeButtonActionPerformed
@@ -602,13 +606,5 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         this.FrequencyLabel.setText(this.controller.userGetFrequencyString());
     }
     
-    private void updateRadio() {
-        
-        this.controller.playRadio();
-    }
-            
-    
-    
-
 
 }
