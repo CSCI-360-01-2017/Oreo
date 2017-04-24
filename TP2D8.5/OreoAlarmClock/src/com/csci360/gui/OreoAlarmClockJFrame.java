@@ -28,6 +28,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
      */
     public OreoAlarmClockJFrame() {
         initComponents();
+        //styles();
         Timer timer = new Timer();
         this.controller = Controller.start();
         this.FMButton.setSelected(true);
@@ -41,6 +42,44 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         };
         timer.schedule(task, 500, 500);
         this.FrequencyLabel.setVisible(false);
+    }
+    
+    private void styles() {
+        
+        Color backgroundColor = new Color(238, 238, 238);
+        Color button = new Color(76, 36, 59);
+        
+        this.SnoozeButton.setBackground(button);
+        this.Alarm1OnOffSwitch.setBackground(button);
+        this.Alarm1ToggleButton.setBackground(button);
+        this.Alarm2OnOffSwitch.setBackground(button);
+        this.Alarm2ToggleButton.setBackground(button); 
+        this.HourButton.setBackground(button);
+        this.MinuteButton.setBackground(button);
+        this.TimeToggleButton.setBackground(button);
+        this.ClockPanel.setBackground(backgroundColor);
+        this.AlarmToggleSpacerPanel.setBackground(backgroundColor);
+        this.topPanelBuffer.setBackground(backgroundColor);
+        this.bottomPanelBuffer.setBackground(backgroundColor);
+        this.ClockControlPanel.setBackground(backgroundColor);
+        this.AlarmSetPanel.setBackground(backgroundColor);
+        this.AlarmTogglePanel.setBackground(backgroundColor);
+        this.jTabbedPane1.setBackground(backgroundColor);
+        this.RadioPanel.setBackground(backgroundColor);
+        this.jPanel2.setBackground(backgroundColor);
+        this.jPanel3.setBackground(backgroundColor);
+        this.radioButtonPanel.setBackground(backgroundColor);
+        this.frequencyPanel.setBackground(backgroundColor);
+        this.volumePanel.setBackground(backgroundColor);
+        this.FMAMPanel.setBackground(backgroundColor);
+        this.playRadioButton.setBackground(button);
+        this.decrementFequencyButton.setBackground(button);
+        this.incrementFequencyButton.setBackground(button);
+        this.DecrementVolumeButton.setBackground(button);
+        this.IncrementVolumeButton.setBackground(button);
+        
+        
+
     }
 
     /**
@@ -92,7 +131,9 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         FMAMButtonGroup.add(FMButton);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oreo Alarm Clock");
 
+        jTabbedPane1.setBackground(new java.awt.Color(102, 0, 102));
         jTabbedPane1.setBorder(new javax.swing.border.MatteBorder(null));
 
         ClockPanel.setLayout(new java.awt.GridLayout(6, 1));
@@ -110,7 +151,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
 
         ClockPanel.add(topPanelBuffer);
 
-        ClockControlPanel.setLayout(new java.awt.GridLayout());
+        ClockControlPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         TimeToggleButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         TimeToggleButton.setText("Set Time");
@@ -152,7 +193,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
 
         ClockPanel.add(ClockControlPanel);
 
-        AlarmSetPanel.setLayout(new java.awt.GridLayout());
+        AlarmSetPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         Alarm1ToggleButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         Alarm1ToggleButton.setText("Set Alarm 1");
@@ -174,7 +215,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
 
         ClockPanel.add(AlarmSetPanel);
 
-        AlarmTogglePanel.setLayout(new java.awt.GridLayout());
+        AlarmTogglePanel.setLayout(new java.awt.GridLayout(1, 0));
 
         Alarm1OnOffSwitch.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         Alarm1OnOffSwitch.setText("Alarm 1 Off");
@@ -245,7 +286,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
 
         RadioPanel.add(jPanel2);
 
-        radioButtonPanel.setLayout(new java.awt.GridLayout());
+        radioButtonPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         playRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         playRadioButton.setText("Turn On Radio");
@@ -258,7 +299,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
 
         RadioPanel.add(radioButtonPanel);
 
-        frequencyPanel.setLayout(new java.awt.GridLayout());
+        frequencyPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         decrementFequencyButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         decrementFequencyButton.setText("<");
@@ -286,7 +327,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
 
         RadioPanel.add(frequencyPanel);
 
-        volumePanel.setLayout(new java.awt.GridLayout());
+        volumePanel.setLayout(new java.awt.GridLayout(1, 0));
 
         DecrementVolumeButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         DecrementVolumeButton.setText("<");
@@ -318,7 +359,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
 
         RadioPanel.add(volumePanel);
 
-        FMAMPanel.setLayout(new java.awt.GridLayout());
+        FMAMPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         FMButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         FMButton.setText("FM");

@@ -17,7 +17,6 @@ import javax.sound.sampled.Clip;
  */
 public class Controller {
     
-    //private boolean isSystemOn = false;
     
     private boolean setTime;
     private boolean alarm1ToggleBoolean;
