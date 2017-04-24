@@ -112,7 +112,8 @@ public class Alarm {
     {
          
             this.isSet = false;
-            alarmTime.setMinute(alarmTime.getMinute() + 9);
+            for(int i = 0; i < 9; i++) 
+                alarmTime.timeIncrementMinute();
             this.isSet = true;
        
         
