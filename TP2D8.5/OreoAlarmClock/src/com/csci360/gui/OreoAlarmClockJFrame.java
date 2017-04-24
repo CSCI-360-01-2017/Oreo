@@ -435,7 +435,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
          if((this.controller.isAlarmSounding() && this.Alarm2OnOffSwitch.isSelected()))
         {
             this.controller.alarm2Snooze();
-            this.controller.setAlarmSounding();
+            this.controller.setAlarmSounding2();
            
         }
         
@@ -683,7 +683,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
             this.controller.play(alarmSound);
             if (!this.Alarm2OnOffSwitch.isSelected() && this.controller.isAlarmSounding())
             {
-                this.controller.setAlarmSounding();
+                this.controller.setAlarmSounding2();
             }
         }
        
