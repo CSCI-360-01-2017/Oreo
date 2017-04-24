@@ -363,7 +363,7 @@ public class Controller {
         else if(getAlarm2EnabledBoolean() && 
                 alarm2.getAlarmTime().toString().equals(clock.getClockTime().toString()))
         {
-            this.setAlarmSounding1();
+            this.setAlarmSounding2();
         }
         
         else {

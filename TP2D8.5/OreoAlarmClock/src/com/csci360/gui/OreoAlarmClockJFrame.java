@@ -423,13 +423,12 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     private void SnoozeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnoozeButtonActionPerformed
         // TODO add your handling code here:
 
-        this.controller.userSnooze();
-        this.controller.stopAlarmSound();
-
-        /*if((this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected()))
+        //this.controller.userSnooze();
+        //this.controller.stopAlarmSound();
+        if((this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected()))
         {
             this.controller.alarm1Snooze();
-            this.controller.setAlarmSounding();
+            this.controller.setAlarmSounding1();
            
         }
         
@@ -438,7 +437,7 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
             this.controller.alarm2Snooze();
             this.controller.setAlarmSounding();
            
-        }*/
+        }
         
     }//GEN-LAST:event_SnoozeButtonActionPerformed
 
@@ -665,16 +664,17 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     // refactor
     private void soundAlarm()
     {
-        if((this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected()))
+        if(this.controller.isAlarmSounding() && this.Alarm1OnOffSwitch.isSelected())
         {
 
             this.controller.startAlarmSound(alarmSound);
 
            // this.play(alarmSound);
-            //if (!this.Alarm1OnOffSwitch.isSelected() && this.controller.isAlarmSounding())
-           // {
-            //    this.controller.setAlarmSounding();
-           // }
+           if (!this.Alarm1OnOffSwitch.isSelected() && this.controller.isAlarmSounding())
+           {
+                this.controller.setAlarmSounding1();
+               
+           }
 
         }
         
