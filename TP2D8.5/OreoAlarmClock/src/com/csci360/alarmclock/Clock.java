@@ -26,21 +26,15 @@ public class Clock {
         
     }
     
-    public void TotalTime()
+    public String getTotalTime()
     {
-        System.out.print(String.format("%02d", clockTime.getHour()) + ":" + String.format("%02d", clockTime.getMinute()) + " " + clockTime.getMeridien());
+        return String.format("%02d", clockTime.getHour()) + ":" + String.format("%02d", clockTime.getMinute()) + " " + clockTime.getMeridien();
     }
     
-    /*public void stopTimer()
-    {
-        timer.cancel();
-        //System.out.print("Timer has stopped");
-    }*/
     
    public void clockTimeIncrementMinute()
     {
         this.clockTime.timeIncrementMinute();
-        //System.out.println(this.clockTime.toString());
     }
     
     public Time getClockTime() 
