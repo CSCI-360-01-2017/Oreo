@@ -543,13 +543,14 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
     private void DecrementVolumeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DecrementVolumeButtonActionPerformed
         // TODO add your handling code here:
         this.controller.userDecrementVolume();
-        System.out.println(this.controller.getVolumeString());
+        this.controller.changeDecibel();
         this.updateVolumeLabel();
     }//GEN-LAST:event_DecrementVolumeButtonActionPerformed
 
     private void IncrementVolumeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IncrementVolumeButtonActionPerformed
         // TODO add your handling code here:
         this.controller.userIncremenetVolume();
+        this.controller.changeDecibel();
         this.updateVolumeLabel();
     }//GEN-LAST:event_IncrementVolumeButtonActionPerformed
 
