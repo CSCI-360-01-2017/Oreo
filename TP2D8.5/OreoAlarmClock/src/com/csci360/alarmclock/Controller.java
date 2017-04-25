@@ -297,7 +297,7 @@ public class Controller {
         {
             ProcessBuilder pb = new ProcessBuilder("osascript","-e",command);
             pb.directory(new File("/usr/bin"));
-            System.out.println(command);
+            //System.out.println(command);
             StringBuffer output = new StringBuffer();
             Process p = pb.start();
             p.waitFor();
@@ -310,7 +310,7 @@ public class Controller {
             {
                 output.append(line + "\n");
             }
-            System.out.println(output);
+            //System.out.println(output);
         }
         catch(Exception e)
         {
@@ -368,9 +368,9 @@ public class Controller {
        
         if(this.radio.getIsFM()) {
             if(this.radio.getFrequency() == 87.5)
-                requestedSong = this.migos;
+                requestedSong = this.littleGames;
             else if(this.radio.getFrequency() == 87.7)
-                requestedSong = this.HotlineBling;
+                requestedSong = this.dearMariaCountMeIn;
             else if(this.radio.getFrequency() == 87.9)
                 requestedSong = this.frontierPsychiatrist;
             else if(this.radio.getFrequency() > 88.1 && this.radio.getFrequency() < 88.3)
@@ -383,6 +383,10 @@ public class Controller {
                 requestedSong = this.titanium;
             else if(this.radio.getFrequency() > 88.9 && this.radio.getFrequency() < 89.1)
                 requestedSong = this.vivaLaVida;
+            else if(this.radio.getFrequency() > 89.1 && this.radio.getFrequency() < 89.3)
+                requestedSong = this.HotlineBling;
+            else if(this.radio.getFrequency() > 89.3 && this.radio.getFrequency() < 89.5)
+                requestedSong = this.migos;
                 
         } else if(!this.radio.getIsFM()) {
             if(this.radio.getFrequency() == 520.0)
