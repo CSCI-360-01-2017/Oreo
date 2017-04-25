@@ -266,30 +266,28 @@ public class Controller {
     
     public void changeDecibel() {
         if(this.radio.getVolume() == 0) {
-            
-        } else if(this.radio.getVolume() == 1) {
             this.setMasterVolume(0.1f);
-        } else if(this.radio.getVolume() == 2) {
+        } else if(this.radio.getVolume() == 1) {
             this.setMasterVolume(0.7f);
-        } else if(this.radio.getVolume() == 3) {
+        } else if(this.radio.getVolume() == 2) {
             this.setMasterVolume(1.4f);
-        } else if(this.radio.getVolume() == 4) {
+        } else if(this.radio.getVolume() == 3) {
             this.setMasterVolume(2.1f);
-        } else if(this.radio.getVolume() == 5) {
+        } else if(this.radio.getVolume() == 4) {
             this.setMasterVolume(2.8f);
-        } else if(this.radio.getVolume() == 6) {
+        } else if(this.radio.getVolume() == 5) {
             this.setMasterVolume(3.5f);
-        } else if(this.radio.getVolume() == 7) {
+        } else if(this.radio.getVolume() == 6) {
             this.setMasterVolume(4.2f);
-        } else if(this.radio.getVolume() == 8) {
+        } else if(this.radio.getVolume() == 7) {
             this.setMasterVolume(4.9f);
-        } else if(this.radio.getVolume() == 9) {
+        } else if(this.radio.getVolume() == 8) {
             this.setMasterVolume(5.6f);
-        } else if(this.radio.getVolume() == 10) {
+        } else if(this.radio.getVolume() == 9) {
             this.setMasterVolume(6.3f);
-        } else if(this.radio.getVolume() == 11) {
+        } else if(this.radio.getVolume() == 10) {
             this.setMasterVolume(7.0f);
-        }
+        } 
     }
     
     public void setMasterVolume(float value)
@@ -375,15 +373,15 @@ public class Controller {
                 requestedSong = this.HotlineBling;
             else if(this.radio.getFrequency() == 87.9)
                 requestedSong = this.frontierPsychiatrist;
-            else if(this.radio.getFrequency() == 88.1)
+            else if(this.radio.getFrequency() > 88.1 && this.radio.getFrequency() < 88.3)
                 requestedSong = this.goOutside;
-            else if(this.radio.getFrequency() == 88.3)
+            else if(this.radio.getFrequency() > 88.3 && this.radio.getFrequency() < 88.5)
                 requestedSong = this.ifIDieYoung;
-            else if(this.radio.getFrequency() == 88.5)
+            else if(this.radio.getFrequency() > 88.5 && this.radio.getFrequency() < 88.7)
                 requestedSong = this.mrSaxobeat;
-            else if(this.radio.getFrequency() == 88.7)
+            else if(this.radio.getFrequency() > 88.7 && this.radio.getFrequency() < 88.9)
                 requestedSong = this.titanium;
-            else if(this.radio.getFrequency() == 88.9)
+            else if(this.radio.getFrequency() > 88.9 && this.radio.getFrequency() < 89.1)
                 requestedSong = this.vivaLaVida;
                 
         } else if(!this.radio.getIsFM()) {

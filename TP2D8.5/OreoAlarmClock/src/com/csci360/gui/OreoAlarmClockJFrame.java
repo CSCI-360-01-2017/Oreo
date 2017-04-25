@@ -509,9 +509,10 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         {
             this.controller.stopRadio();
             this.controller.userDecrementFrequency();
+            this.controller.playRadio();
         }
         this.updateFrequencyLabel();
-        this.controller.playRadio();
+        
     }//GEN-LAST:event_decrementFequencyButtonActionPerformed
 
     private void incrementFequencyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incrementFequencyButtonActionPerformed
@@ -520,9 +521,10 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         {
             this.controller.stopRadio();
             this.controller.userIncremenetFrequency();
+            this.controller.playRadio();
         }
         this.updateFrequencyLabel();
-        this.controller.playRadio();
+        
         
     }//GEN-LAST:event_incrementFequencyButtonActionPerformed
 
@@ -530,14 +532,20 @@ public class OreoAlarmClockJFrame extends javax.swing.JFrame {
         // TODO add your handling code here: 
         this.controller.userToggleIsFM();
         this.updateFrequencyLabel();
-        this.controller.updateRadio();
+        if(this.playRadioButton.isSelected())
+        {
+            this.controller.updateRadio();
+        }
     }//GEN-LAST:event_FMButtonActionPerformed
 
     private void AMButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMButtonActionPerformed
         // TODO add your handling code here:
         this.controller.userToggleIsFM();
         this.updateFrequencyLabel();
-        this.controller.updateRadio();
+        if(this.playRadioButton.isSelected())
+        {
+            this.controller.updateRadio();
+        }
     }//GEN-LAST:event_AMButtonActionPerformed
 
     private void DecrementVolumeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DecrementVolumeButtonActionPerformed
