@@ -228,6 +228,7 @@ public class Controller {
     private File littleGames = new File("sounds/Little_Games.WAV");
     private File titanium = new File("sounds/Titanium_feat_Sia_.WAV");
     private File vivaLaVida = new File("sounds/Viva_la_Vida.WAV");
+    private File HotlineBling = new File("sounds/Hotline_Bling.WAV");
     
     
     private File electricFeel = new File("sounds/Electric_Feel.WAV");
@@ -238,6 +239,7 @@ public class Controller {
     private File tongueTied = new File("sounds/Tongue_Tied.WAV");
     private File sleepyhead = new File("sounds/Sleepyhead.WAV");
     private File sweaterWeather = new File("sounds/Sweater_Weather.WAV");
+    private File migos = new File("sounds/Bad_And_Boujee.WAV");
     
     private Clip clip;
     private Clip alarm;
@@ -309,9 +311,9 @@ public class Controller {
        
         if(this.radio.getIsFM()) {
             if(this.radio.getFrequency() == 87.5)
-                requestedSong = this.littleGames;
+                requestedSong = this.migos;
             else if(this.radio.getFrequency() == 87.7)
-                requestedSong = this.dearMariaCountMeIn;
+                requestedSong = this.HotlineBling;
             else if(this.radio.getFrequency() == 87.9)
                 requestedSong = this.frontierPsychiatrist;
             else if(this.radio.getFrequency() == 88.1)
