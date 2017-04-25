@@ -31,16 +31,16 @@ public class Clock {
         System.out.print(String.format("%02d", clockTime.getHour()) + ":" + String.format("%02d", clockTime.getMinute()) + " " + clockTime.getMeridien());
     }
     
-    public void stopTimer()
+    /*public void stopTimer()
     {
         timer.cancel();
-        System.out.print("Timer has stopped");
-    }
+        //System.out.print("Timer has stopped");
+    }*/
     
    public void clockTimeIncrementMinute()
     {
         this.clockTime.timeIncrementMinute();
-        System.out.println(this.clockTime.toString());
+        //System.out.println(this.clockTime.toString());
     }
     
     public Time getClockTime() 
