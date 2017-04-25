@@ -5,11 +5,14 @@
  */
 package com.csci360.alarmclock;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
 /**
  *
@@ -45,6 +48,7 @@ public class Controller {
         this.alarm1 = new Alarm();
         this.alarm2 = new Alarm();
         this.radio = new Radio();
+        this.radio.setVolume(5);
     }
     
     
@@ -158,8 +162,7 @@ public class Controller {
     
     public void alarm1Snooze()
     {
-        this.alarm1.snooze();
-        
+        this.alarm1.snooze();    
     }
     
     public void alarm2Snooze()
@@ -189,7 +192,7 @@ public class Controller {
     
     public void userDecrementFrequency()
     {
-        this.radio.decrementFrequency();
+        this.radio.decrementFrequency();  
     }
     
     public void userIncremenetVolume()
@@ -258,6 +261,62 @@ public class Controller {
         catch (Exception exc)
         {
             exc.printStackTrace(System.out);
+        }
+    }
+    
+    public void changeDecibel() {
+        if(this.radio.getVolume() == 0) {
+            
+        } else if(this.radio.getVolume() == 1) {
+            this.setMasterVolume(0.1f);
+        } else if(this.radio.getVolume() == 2) {
+            this.setMasterVolume(0.7f);
+        } else if(this.radio.getVolume() == 3) {
+            this.setMasterVolume(1.4f);
+        } else if(this.radio.getVolume() == 4) {
+            this.setMasterVolume(2.1f);
+        } else if(this.radio.getVolume() == 5) {
+            this.setMasterVolume(2.8f);
+        } else if(this.radio.getVolume() == 6) {
+            this.setMasterVolume(3.5f);
+        } else if(this.radio.getVolume() == 7) {
+            this.setMasterVolume(4.2f);
+        } else if(this.radio.getVolume() == 8) {
+            this.setMasterVolume(4.9f);
+        } else if(this.radio.getVolume() == 9) {
+            this.setMasterVolume(5.6f);
+        } else if(this.radio.getVolume() == 10) {
+            this.setMasterVolume(6.3f);
+        } else if(this.radio.getVolume() == 11) {
+            this.setMasterVolume(7.0f);
+        }
+    }
+    
+    public void setMasterVolume(float value)
+    {
+        String command = "set volume " + value;
+        try
+        {
+            ProcessBuilder pb = new ProcessBuilder("osascript","-e",command);
+            pb.directory(new File("/usr/bin"));
+            System.out.println(command);
+            StringBuffer output = new StringBuffer();
+            Process p = pb.start();
+            p.waitFor();
+
+            BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+            String line;
+            while ((line = reader.readLine())!= null)
+            {
+                output.append(line + "\n");
+            }
+            System.out.println(output);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
         }
     }
     

@@ -46,6 +46,10 @@ public class Radio {
         return volume;
     }
     
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+    
      /**
      * @param volume the volume to increment
      */
